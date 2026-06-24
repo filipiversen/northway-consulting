@@ -1,0 +1,49 @@
+---
+title: A Model Upgrade Is Not a Release. Your Harness Is.
+description: When a new model ships, the temptation is to bump the string and call it done. The durable advantage is everything around the model — the harness you control.
+date: 2026-04-18
+tag: engineering
+---
+
+Every few months a better model ships. Longer context, lower cost, stronger
+agent behavior. The temptation is to change one string in a config file and
+announce an upgrade.
+
+That's not a release. That's a dependency bump. The release is your **harness** —
+the part you actually control.
+
+## The model is rented. The harness is owned.
+
+You don't control the model. You rent it, and the landlord changes it on their
+schedule: prices drop, capabilities shift, and one day your favorite version is
+deprecated and your hard-coded string starts returning 404s.
+
+What you own is everything around it:
+
+- The **prompts and context** you assemble, and how you ground them in your data.
+- The **tools** the model can call, and the permissions on each.
+- The **evaluation set** that tells you whether a swap made things better or
+  quietly worse.
+- The **guardrails, retries, and fallbacks** that decide what happens when the
+  model misbehaves.
+
+Improve those and you improve every model you'll ever run through them.
+
+## Two cheap insurances
+
+Two small investments save you most of the future pain:
+
+1. **A thin model abstraction.** Sixty lines, not a framework. One place that
+   maps a capability ("classify this", "draft that") to a model, so the next
+   deprecation is a one-line change instead of a grep across the codebase.
+2. **Evals you actually run.** A frozen set of real cases with a score. Without
+   it, "the new model is better" is a press release you're repeating. With it,
+   it's a number you can check before you ship.
+
+## So when the next model drops
+
+Don't just bump the string. Run it through your harness, check the evals, and
+ship the harness change with the confidence the number gives you.
+
+> The model is the part everyone can buy. The harness is the part only you have.
+> That's where the advantage lives.
