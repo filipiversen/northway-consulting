@@ -12,6 +12,8 @@ import "@fontsource/geist-mono/500.css";
 import "@fontsource/space-grotesk/500.css";
 import "@fontsource/space-grotesk/600.css";
 import "@fontsource/space-grotesk/700.css";
+import "@fontsource/manrope/700.css";
+import "@fontsource/manrope/800.css";
 import "./styles/app.css";
 
 export default function App() {

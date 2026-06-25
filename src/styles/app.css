@@ -7,9 +7,12 @@
   --font-mono:
     "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono",
     monospace;
-  /* Display face carries headlines and the wordmark — characterful grotesk. */
+  /* Display face carries headlines — characterful grotesk. */
   --font-display:
     "Space Grotesk", "Geist Sans", ui-sans-serif, system-ui, sans-serif;
+  /* Manrope carries the wordmark. */
+  --font-manrope:
+    "Manrope", "Geist Sans", ui-sans-serif, system-ui, sans-serif;
 
   /* ----- Northway palette ----- *
    * Identity: true north / north star. Midnight-indigo ink on cool paper,

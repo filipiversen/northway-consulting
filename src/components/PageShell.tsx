@@ -48,11 +48,10 @@ export default function PageShell(props: Props) {
         <a
           href="/"
           aria-label={`Home — ${profile.name}`}
-          class="group relative -m-2 flex items-center gap-2 p-2"
+          class="relative -m-2 p-2 transition-opacity hover-hover:hover:opacity-70"
         >
-          <NorthStar class="h-4 w-4 text-accent transition-transform duration-300 ease-out group-hover:rotate-90" />
-          <span class="font-display text-[0.95rem] font-semibold tracking-tight text-fg">
-            Northway
+          <span class="font-manrope text-[19px] font-extrabold leading-tight tracking-tight text-fg sm:text-[22px] md:text-[25px]">
+            northway.consulting
           </span>
         </a>
 
@@ -64,7 +63,7 @@ export default function PageShell(props: Props) {
           ))}
           <a
             href="/ai-audit"
-            class="rounded-full border border-line px-3 py-1 text-fg transition-colors hover-hover:hover:border-fg"
+            class="whitespace-nowrap rounded-full border border-line px-3 py-1 text-fg transition-colors hover-hover:hover:border-fg"
           >
             Free Audit →
           </a>

@@ -14,6 +14,7 @@
   "dependencies": {
     "@fontsource/geist-mono": "^5.2.7",
     "@fontsource/geist-sans": "^5.2.5",
+    "@fontsource/manrope": "^5.2.8",
     "@fontsource/space-grotesk": "^5.2.10",
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.16.1",
