@@ -7,30 +7,29 @@
   --font-mono:
     "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono",
     monospace;
-  /* Display face carries headlines — characterful grotesk. */
+  /* Headlines use the same Geist Sans as the body (matching filipiversen.com),
+     set apart by weight + tight tracking rather than a separate display face. */
   --font-display:
-    "Space Grotesk", "Geist Sans", ui-sans-serif, system-ui, sans-serif;
-  /* Manrope carries the wordmark. */
+    "Geist Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  /* Manrope carries only the wordmark. */
   --font-manrope:
     "Manrope", "Geist Sans", ui-sans-serif, system-ui, sans-serif;
 
-  /* ----- Northway palette ----- *
-   * Identity: true north / north star. Midnight-indigo ink on cool paper,
-   * with a warm "north-star" gold as the single accent. Dark mode flips to a
-   * deep navy night sky. Distinct from the warm-earth reference it's modeled on. */
-  --color-bg: oklch(98.6% 0.005 250);
-  --color-bg-soft: oklch(96.3% 0.008 255);
+  /* ----- Palette — matches filipiversen.com ----- *
+   * Warm near-white paper and near-neutral ink, with a single warm red-orange
+   * accent. Dark mode flips to a near-black neutral. */
+  --color-bg: oklch(98.4% 0.005 90);
+  --color-bg-soft: oklch(96.5% 0.006 90);
   /* Theme-agnostic row hover — a tiny tint of the foreground over the bg.
      Works in both light and dark because --color-fg flips per theme. */
   --color-bg-hover: color-mix(in oklab, var(--color-fg) 5%, transparent);
-  --color-fg: oklch(23% 0.03 264);
-  --color-fg-muted: oklch(46% 0.028 264);
-  --color-fg-faint: oklch(62% 0.024 264);
-  --color-line: oklch(90% 0.012 264);
-  /* North-star gold — links, CTAs, reading progress, the mark's star. */
-  --color-accent: oklch(58% 0.13 72);
-  /* Deep indigo — dark feature bands, eyebrow ticks, structural emphasis. */
-  --color-brand: oklch(34% 0.075 264);
+  --color-fg: oklch(18% 0.005 270);
+  --color-fg-muted: oklch(45% 0.01 270);
+  --color-fg-faint: oklch(62% 0.012 270);
+  --color-line: oklch(90% 0.005 270);
+  /* Warm red-orange accent — links, CTAs, reading progress, the mark's star. */
+  --color-accent: oklch(58% 0.16 28);
 
   --container-prose: 40rem;
 
@@ -57,14 +56,13 @@
 
   /* Single source of truth — no `.dark` class, no duplication. */
   html[data-theme="dark"] {
-    --color-bg: oklch(17% 0.028 264);
-    --color-bg-soft: oklch(21% 0.032 264);
-    --color-fg: oklch(95% 0.008 250);
-    --color-fg-muted: oklch(72% 0.02 255);
-    --color-fg-faint: oklch(55% 0.024 260);
-    --color-line: oklch(31% 0.03 264);
-    --color-accent: oklch(80% 0.13 80);
-    --color-brand: oklch(70% 0.1 250);
+    --color-bg: oklch(15% 0.005 270);
+    --color-bg-soft: oklch(19% 0.006 270);
+    --color-fg: oklch(96% 0.005 90);
+    --color-fg-muted: oklch(70% 0.01 270);
+    --color-fg-faint: oklch(52% 0.012 270);
+    --color-line: oklch(28% 0.008 270);
+    --color-accent: oklch(72% 0.18 28);
 
     --shadow-border: 0 0 0 1px rgba(255, 255, 255, 0.08);
     --shadow-border-hover: 0 0 0 1px rgba(255, 255, 255, 0.13);
