@@ -86,7 +86,7 @@ export default function ServicePage() {
               <div data-hero-step="3" class="mt-5 flex flex-wrap gap-2">
                 <For each={s().tags}>
                   {(tag) => (
-                    <span class="rounded-full border border-line px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-[0.08em] text-fg-faint">
+                    <span class="border border-line px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-[0.08em] text-fg-faint">
                       {tag}
                     </span>
                   )}
@@ -151,13 +151,13 @@ export default function ServicePage() {
               <div class="mt-5 flex shrink-0 gap-3 md:mt-0">
                 <a
                   href="/ai-audit"
-                  class="rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition-transform hover-hover:hover:-translate-y-0.5 active:translate-y-0"
+                  class="bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
                 >
                   Book a free audit →
                 </a>
                 <a
                   href="/contact"
-                  class="rounded-full border border-line px-5 py-2.5 text-sm font-medium transition-colors hover-hover:hover:border-fg"
+                  class="border border-line px-5 py-2.5 text-sm font-medium transition-colors hover-hover:hover:border-accent hover-hover:hover:text-accent"
                 >
                   Contact
                 </a>
@@ -173,7 +173,7 @@ export default function ServicePage() {
                   {(other) => (
                     <a
                       href={`/services/${other.slug}`}
-                      class="rounded-full border border-line px-3 py-1.5 text-sm text-fg-muted transition-colors hover-hover:hover:border-fg hover-hover:hover:text-fg"
+                      class="border border-line px-3 py-1.5 text-sm text-fg-muted transition-colors hover-hover:hover:border-accent hover-hover:hover:text-accent"
                     >
                       {other.short}
                     </a>

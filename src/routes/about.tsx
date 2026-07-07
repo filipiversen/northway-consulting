@@ -43,22 +43,18 @@ const BRINGS = [
 
 const VALUES = [
   {
-    roman: "I",
     title: "Ship, not pilot",
     body: "Production from the first commit. A demo nobody can rely on isn't a win.",
   },
   {
-    roman: "II",
     title: "Foundations first",
     body: "Design system, headless API, real CI. Invest once and everything after it gets cheaper.",
   },
   {
-    roman: "III",
     title: "Honest counsel",
     body: "We'll tell you when automation isn't worth it. Trust is the whole business.",
   },
   {
-    roman: "IV",
     title: "Own the outcome",
     body: "We run what we build and stay accountable for whether it actually works.",
   },
@@ -89,16 +85,41 @@ export default function About() {
         </h1>
         <p
           data-hero-step="3"
-          class="mt-6 max-w-[38rem] text-pretty text-base leading-relaxed text-fg-muted md:text-lg"
+          class="mt-6 max-w-[40rem] text-pretty text-base leading-relaxed text-fg-muted md:text-lg"
         >
-          {profile.blurb}
+          Northway is an AI consulting practice — a network of senior engineers
+          and AI specialists, founded and operated by{" "}
+          <span class="text-fg">Filip Iversen</span>. We design, build, and run
+          intelligent systems — custom agents, workflow automation, and the
+          engineering judgment to ship them — for teams that want results, not
+          pilots.
         </p>
       </section>
 
+      {/* Who you're working with */}
+      <section data-hero-step="4" class="mb-20">
+        <div class="rounded-lg border border-line bg-bg-soft p-6 md:p-8">
+          <p class="mb-3 font-mono text-xs uppercase tracking-[0.18em] text-accent">
+            Who you're working with
+          </p>
+          <p class="max-w-2xl text-pretty text-lg leading-relaxed text-fg-muted">
+            Northway runs as a{" "}
+            <span class="font-medium text-fg">network, not an agency</span> — a
+            tight bench of senior engineers and AI specialists assembled around
+            the shape of each engagement.{" "}
+            <span class="font-medium text-fg">Filip</span> stays your single
+            point of contact from first call to launch, so you get a bigger
+            team's range without the handoffs — and one person who's always
+            accountable for the outcome.
+          </p>
+        </div>
+      </section>
+
       {/* 01 How we think */}
-      <section data-hero-step="4" class="mb-20 max-w-2xl">
-        <p class="mb-3 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
-          01 · How we think
+      <section data-hero-step="5" class="mb-20 max-w-2xl">
+        <p class="mb-3 flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
+          <span aria-hidden="true" class="h-3 w-px bg-accent" />
+          How we think
         </p>
         <h2 class="mb-4 font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">
           The boring decisions are the advantage.
@@ -120,9 +141,10 @@ export default function About() {
       </section>
 
       {/* 02 Track record */}
-      <section data-hero-step="5" class="mb-20">
-        <p class="mb-3 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
-          02 · Where we've built
+      <section data-hero-step="6" class="mb-20">
+        <p class="mb-3 flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
+          <span aria-hidden="true" class="h-3 w-px bg-accent" />
+          Where we've built
         </p>
         <h2 class="mb-8 font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">
           Startups, enterprises, and everything between.
@@ -142,28 +164,25 @@ export default function About() {
           </For>
         </ul>
         {/*
-          PLACEHOLDER — add the real team/founder bios, named clients, and
-          logos here when you're ready to make them public. Kept firm-voiced
-          and unnamed for now per the "firm" framing.
+          Optional — add named clients, logos, or short network/specialist bios
+          here when you're ready to make them public.
         */}
       </section>
 
       {/* 03 What we bring */}
-      <section data-hero-step="6" class="mb-20">
-        <p class="mb-3 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
-          03 · What we bring
+      <section data-hero-step="7" class="mb-20">
+        <p class="mb-3 flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
+          <span aria-hidden="true" class="h-3 w-px bg-accent" />
+          What we bring
         </p>
         <h2 class="mb-8 font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">
           What you get in every engagement.
         </h2>
         <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <For each={BRINGS}>
-            {(b, i) => (
+            {(b) => (
               <li class="rounded-lg border border-line p-6">
-                <span class="font-mono text-xs uppercase tracking-[0.08em] text-accent">
-                  {String.fromCharCode(65 + i())}
-                </span>
-                <h3 class="mt-2 font-display text-base font-semibold tracking-tight">
+                <h3 class="font-display text-base font-semibold tracking-tight">
                   {b.title}
                 </h3>
                 <p class="mt-1.5 text-sm leading-relaxed text-fg-muted">
@@ -176,9 +195,10 @@ export default function About() {
       </section>
 
       {/* 04 Values */}
-      <section data-hero-step="7" class="mb-20">
-        <p class="mb-3 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
-          04 · What drives us
+      <section data-hero-step="8" class="mb-20">
+        <p class="mb-3 flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
+          <span aria-hidden="true" class="h-3 w-px bg-accent" />
+          What drives us
         </p>
         <h2 class="mb-8 font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">
           The values under the work.
@@ -187,10 +207,7 @@ export default function About() {
           <For each={VALUES}>
             {(v) => (
               <li class="bg-bg p-6">
-                <span class="font-display text-2xl font-semibold text-accent">
-                  {v.roman}
-                </span>
-                <h3 class="mt-2 font-display text-base font-semibold tracking-tight">
+                <h3 class="font-display text-base font-semibold tracking-tight">
                   {v.title}
                 </h3>
                 <p class="mt-1.5 text-sm leading-relaxed text-fg-muted">
@@ -204,26 +221,26 @@ export default function About() {
 
       {/* CTA */}
       <section
-        data-hero-step="8"
-        class="rounded-xl border border-line bg-bg-soft p-8 text-center md:p-14"
+        data-hero-step="9"
+        class="rounded-lg border border-night-line bg-night p-8 text-center text-night-fg md:p-14"
       >
-        <h2 class="mx-auto max-w-xl font-display text-2xl font-semibold tracking-tight text-balance md:text-4xl">
+        <h2 class="mx-auto max-w-xl font-display text-2xl font-bold tracking-tight text-balance md:text-4xl">
           Want to build something that lasts?
         </h2>
-        <p class="mx-auto mt-4 max-w-md text-pretty text-fg-muted">
+        <p class="mx-auto mt-4 max-w-md text-pretty text-night-muted">
           Whether you need AI automation or just want to compare notes, we'd like
           to hear from you.
         </p>
         <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
           <a
             href="/contact"
-            class="rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition-transform hover-hover:hover:-translate-y-0.5 active:translate-y-0"
+            class="bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
           >
             Get in touch →
           </a>
           <a
             href="/ai-audit"
-            class="rounded-full border border-line px-5 py-2.5 text-sm font-medium transition-colors hover-hover:hover:border-fg"
+            class="border border-night-line px-5 py-2.5 text-sm font-medium text-night-fg transition-colors hover-hover:hover:border-star"
           >
             Start with a free audit
           </a>

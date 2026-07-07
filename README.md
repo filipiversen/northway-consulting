@@ -5,8 +5,9 @@ Northway Consulting — **AI consulting & engineering**. SolidStart in
 
 The content and information architecture are modeled on a reference consulting
 site (documented in [`docs/content-reference.md`](docs/content-reference.md))
-and rebuilt under Northway's own firm-voiced identity and a midnight-indigo /
-north-star visual system.
+and rebuilt under Northway's own firm-voiced identity: the "Grayscale +
+Signal" ops-console design — monochrome ink on near-black, IBM Plex Mono
+throughout, and signal green reserved for the places automation goes live.
 
 ## Stack
 
@@ -14,7 +15,7 @@ north-star visual system.
 - TypeScript, Vite (via Vinxi)
 - Tailwind CSS v4 (CSS-first config in `src/styles/app.css`)
 - MDX for case studies and field notes (`@mdx-js/rollup` + `solid-mdx`)
-- Self-hosted Geist Sans / Geist Mono + Space Grotesk (display) via Fontsource
+- Self-hosted IBM Plex Mono via Fontsource (the site's single typeface)
 
 ## Develop
 
@@ -58,13 +59,35 @@ These are intentional placeholders (also flagged in-code):
 
 - **`src/content/profile.ts`** — `email`, the LinkedIn URL, and the coverage
   line.
-- **`src/routes/contact.tsx`** — `FORM_ACTION` points at a placeholder; wire it
-  to a real handler (Formspree/Basin ID, or a Vercel function at `/api/contact`).
-  The email + mailto links already work.
+- **Contact form / Resend** — the form posts to `src/routes/api/contact.ts`,
+  which sends via Resend. Set `RESEND_API_KEY` (see [Contact form](#contact-form)
+  below). Until it's set, the endpoint returns a friendly "email isn't
+  configured" message and the mailto links still work.
 - **`src/routes/about.tsx`** — add real team/founder bios, named clients, and
   logos when you're ready (kept firm-voiced and unnamed for now).
 - **Case studies** in `src/content/projects/` are drawn from real work; confirm
   client names / links / permissions before publishing.
+
+## Contact form
+
+The form on `/contact` posts to `src/routes/api/contact.ts`, which validates the
+input (with a honeypot for bots) and sends the message via the **Resend** REST
+API. With JS it submits inline (the `ContactFormEnhancer` island shows success /
+error in place); without JS it posts natively and the server redirects to
+`/thanks`.
+
+Configure these environment variables — in `.env` for local dev (copy
+`.env.example`), and in **Vercel → Settings → Environment Variables** for prod:
+
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `RESEND_API_KEY` | yes | Your Resend API key (`resend.com/api-keys`). |
+| `CONTACT_TO_EMAIL` | no | Inbox that receives submissions. Defaults to `profile.email`. |
+| `CONTACT_FROM_EMAIL` | no | Verified Resend sender. Defaults to `onboarding@resend.dev` (testing only — delivers to your Resend account email). |
+
+To send from `contact@northway.consulting`, verify the `northway.consulting`
+domain in Resend (add the DNS records it gives you), then set
+`CONTACT_FROM_EMAIL="Northway Consulting <contact@northway.consulting>"`.
 
 ## Deployment
 

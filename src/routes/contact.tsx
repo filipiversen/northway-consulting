@@ -1,15 +1,21 @@
 import { For } from "solid-js";
 import { Title, Meta } from "@solidjs/meta";
+import { clientOnly } from "@solidjs/start";
 import PageShell from "~/components/PageShell";
 import { profile } from "~/content/profile";
 import { services } from "~/content/services";
 
+const ContactFormEnhancer = clientOnly(
+  () => import("~/components/islands/ContactFormEnhancer"),
+);
+
 /**
- * NOTE: the form posts to a placeholder endpoint. Wire `FORM_ACTION` to a real
- * handler before launch — e.g. a Formspree/Basin form ID, or a Vercel function
- * at /api/contact. Until then the email + mailto links below are fully working.
+ * The form posts to the /api/contact route, which sends the message via Resend.
+ * Without JS it posts natively and the server redirects to /thanks; the
+ * enhancer island below upgrades it with inline success / error states.
+ * Configure RESEND_API_KEY (+ optional CONTACT_TO_EMAIL / CONTACT_FROM_EMAIL).
  */
-const FORM_ACTION = "https://formspree.io/f/your-form-id";
+const FORM_ACTION = "/api/contact";
 
 export default function Contact() {
   return (
@@ -47,8 +53,9 @@ export default function Contact() {
         {/* Left: direct channels */}
         <div data-hero-step="4" class="space-y-8">
           <div>
-            <p class="mb-2 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
-              01 · Book
+            <p class="mb-2 flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
+              <span aria-hidden="true" class="h-3 w-px bg-accent" />
+              Book a call
             </p>
             <h2 class="font-display text-xl font-semibold tracking-tight">
               A free 30-minute discovery call.
@@ -60,15 +67,16 @@ export default function Contact() {
             </p>
             <a
               href={`mailto:${profile.email}?subject=Discovery%20call`}
-              class="mt-4 inline-block rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition-transform hover-hover:hover:-translate-y-0.5 active:translate-y-0"
+              class="mt-4 inline-block bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
             >
               Request a call →
             </a>
           </div>
 
           <div class="border-t border-line pt-8">
-            <p class="mb-2 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
-              02 · Write
+            <p class="mb-2 flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
+              <span aria-hidden="true" class="h-3 w-px bg-accent" />
+              Write to us
             </p>
             <h2 class="font-display text-xl font-semibold tracking-tight">
               Prefer to write?
@@ -119,9 +127,14 @@ export default function Contact() {
         {/* Right: form */}
         <div
           data-hero-step="5"
-          class="rounded-xl border border-line bg-bg-soft p-6 md:p-8"
+          class="rounded-lg border border-line bg-bg-soft p-6 md:p-8"
         >
-          <form action={FORM_ACTION} method="post" class="space-y-5">
+          <form
+            action={FORM_ACTION}
+            method="post"
+            data-contact-form
+            class="space-y-5"
+          >
             <div>
               <label
                 for="name"
@@ -198,7 +211,7 @@ export default function Contact() {
             />
             <button
               type="submit"
-              class="w-full rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition-transform hover-hover:hover:-translate-y-0.5 active:translate-y-0"
+              class="w-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
             >
               Send message →
             </button>
@@ -206,6 +219,7 @@ export default function Contact() {
               We typically respond within 24 hours.
             </p>
           </form>
+          <ContactFormEnhancer />
         </div>
       </div>
     </PageShell>

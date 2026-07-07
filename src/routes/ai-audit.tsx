@@ -105,13 +105,13 @@ export default function AiAudit() {
         <div data-hero-step="4" class="mt-8 flex flex-wrap gap-3">
           <a
             href={`mailto:${profile.email}?subject=AI%20Audit%20request`}
-            class="rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition-transform hover-hover:hover:-translate-y-0.5 active:translate-y-0"
+            class="bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
           >
             Book your audit →
           </a>
           <a
             href="/contact"
-            class="rounded-full border border-line px-5 py-2.5 text-sm font-medium transition-colors hover-hover:hover:border-fg"
+            class="border border-line px-5 py-2.5 text-sm font-medium transition-colors hover-hover:hover:border-accent hover-hover:hover:text-accent"
           >
             Ask a question first
           </a>
@@ -120,8 +120,9 @@ export default function AiAudit() {
 
       {/* 01 The premise */}
       <section data-hero-step="5" class="mb-20 max-w-2xl">
-        <p class="mb-3 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
-          01 · The premise
+        <p class="mb-3 flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
+          <span aria-hidden="true" class="h-3 w-px bg-accent" />
+          The premise
         </p>
         <h2 class="mb-4 font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">
           Most teams have a ghost employee.
@@ -148,20 +149,18 @@ export default function AiAudit() {
 
       {/* 02 Deliverables */}
       <section data-hero-step="6" class="mb-20">
-        <p class="mb-3 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
-          02 · What you get
+        <p class="mb-3 flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
+          <span aria-hidden="true" class="h-3 w-px bg-accent" />
+          What you get
         </p>
         <h2 class="mb-8 font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">
           Concrete deliverables. No fluff.
         </h2>
         <ul class="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2">
           <For each={DELIVERABLES}>
-            {(d, i) => (
+            {(d) => (
               <li class="bg-bg p-6">
-                <span class="font-mono text-xs tabular-nums text-accent">
-                  {String(i() + 1).padStart(2, "0")}
-                </span>
-                <h3 class="mt-2 font-display text-base font-semibold tracking-tight">
+                <h3 class="font-display text-base font-semibold tracking-tight">
                   {d.title}
                 </h3>
                 <p class="mt-1.5 text-sm leading-relaxed text-fg-muted">
@@ -175,8 +174,9 @@ export default function AiAudit() {
 
       {/* 03 Process */}
       <section data-hero-step="7" class="mb-20">
-        <p class="mb-3 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
-          03 · The process
+        <p class="mb-3 flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
+          <span aria-hidden="true" class="h-3 w-px bg-accent" />
+          The process
         </p>
         <h2 class="mb-8 font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">
           One hour. Three steps. No sales pitch.
@@ -207,8 +207,9 @@ export default function AiAudit() {
 
       {/* 04 Who it's for */}
       <section data-hero-step="8" class="mb-20 max-w-2xl">
-        <p class="mb-3 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
-          04 · Who this is for
+        <p class="mb-3 flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
+          <span aria-hidden="true" class="h-3 w-px bg-accent" />
+          Who this is for
         </p>
         <h2 class="mb-6 font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">
           If any of these sound like you, book it.
@@ -231,8 +232,9 @@ export default function AiAudit() {
 
       {/* 05 FAQ */}
       <section data-hero-step="9" class="mb-20">
-        <p class="mb-3 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
-          05 · Common questions
+        <p class="mb-3 flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
+          <span aria-hidden="true" class="h-3 w-px bg-accent" />
+          Common questions
         </p>
         <h2 class="mb-8 font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">
           What people ask before booking.
@@ -259,28 +261,29 @@ export default function AiAudit() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA — the night sky */}
       <section
         data-hero-step="10"
-        class="rounded-xl border border-line bg-bg-soft p-8 text-center md:p-14"
+        class="rounded-lg border border-night-line bg-night p-8 text-center text-night-fg md:p-14"
       >
-        <h2 class="mx-auto max-w-xl font-display text-2xl font-semibold tracking-tight text-balance md:text-4xl">
+        <NorthStar class="mx-auto mb-4 h-6 w-6 text-star" />
+        <h2 class="mx-auto max-w-xl font-display text-2xl font-bold tracking-tight text-balance md:text-4xl">
           The audit takes an hour. The roadmap is yours.
         </h2>
-        <p class="mx-auto mt-4 max-w-md text-pretty text-fg-muted">
+        <p class="mx-auto mt-4 max-w-md text-pretty text-night-muted">
           No credit card. No hard sell. Just a conversation and the written
           deliverables.
         </p>
         <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
           <a
             href={`mailto:${profile.email}?subject=AI%20Audit%20request`}
-            class="rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition-transform hover-hover:hover:-translate-y-0.5 active:translate-y-0"
+            class="bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
           >
             Book your audit →
           </a>
           <a
             href="/contact"
-            class="rounded-full border border-line px-5 py-2.5 text-sm font-medium transition-colors hover-hover:hover:border-fg"
+            class="border border-night-line px-5 py-2.5 text-sm font-medium text-night-fg transition-colors hover-hover:hover:border-star"
           >
             Send a note instead
           </a>

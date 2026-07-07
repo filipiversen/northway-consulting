@@ -1,71 +1,54 @@
 @import "tailwindcss";
 
 @theme {
+  /* One face for everything — the console is the brand. `ui-monospace`
+     resolves to SF Mono on macOS; IBM Plex Mono is the shipped fallback
+     and the canonical render everywhere else. */
   --font-sans:
-    "Geist Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
   --font-mono:
-    "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono",
-    monospace;
-  /* Headlines use the same Geist Sans as the body (matching filipiversen.com),
-     set apart by weight + tight tracking rather than a separate display face. */
+    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
   --font-display:
-    "Geist Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  /* Manrope carries only the wordmark. */
-  --font-manrope:
-    "Manrope", "Geist Sans", ui-sans-serif, system-ui, sans-serif;
+    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
 
-  /* ----- Palette — matches filipiversen.com ----- *
-   * Warm near-white paper and near-neutral ink, with a single warm red-orange
-   * accent. Dark mode flips to a near-black neutral. */
-  --color-bg: oklch(98.4% 0.005 90);
-  --color-bg-soft: oklch(96.5% 0.006 90);
-  /* Theme-agnostic row hover — a tiny tint of the foreground over the bg.
-     Works in both light and dark because --color-fg flips per theme. */
-  --color-bg-hover: color-mix(in oklab, var(--color-fg) 5%, transparent);
-  --color-fg: oklch(18% 0.005 270);
-  --color-fg-muted: oklch(45% 0.01 270);
-  --color-fg-faint: oklch(62% 0.012 270);
-  --color-line: oklch(90% 0.005 270);
-  /* Warm red-orange accent — links, CTAs, reading progress, the mark's star. */
-  --color-accent: oklch(58% 0.16 28);
+  /* ----- Palette — "Grayscale + Signal" ----- *
+   * Monochrome ink on near-black; green enters only where it carries
+   * meaning: the live cursor, success states, the primary action, the
+   * moment automation goes live. Grey is manual, green is automated. */
+  --color-bg: #0b0b0b;
+  --color-bg-soft: #141414;
+  --color-bg-hover: rgba(236, 236, 236, 0.06);
+  --color-fg: #ececec;
+  --color-fg-muted: #8f8f8f;
+  --color-fg-faint: #565656;
+  --color-line: rgba(236, 236, 236, 0.18);
+  --color-accent: #30d158;
+  /* Text color for content sitting ON the accent. */
+  --color-accent-ink: #06180d;
 
-  --container-prose: 40rem;
+  /* Legacy aliases still used by interior-page CTA panels ("night sky"
+     sections from the previous identity). They now resolve to the panel
+     surface + signal green so those sections restyle themselves. */
+  --color-night: #141414;
+  --color-night-fg: #ececec;
+  --color-night-muted: #8f8f8f;
+  --color-night-line: rgba(236, 236, 236, 0.18);
+  --color-star: #30d158;
+
+  --container-prose: 42rem;
 
   /* Hairlines — auto-thin on retina via custom prop. */
   --hairline: 1px;
 
-  /* Layered "border" shadow used to give depth on hover. Lifted from the
-     surfaces skill — three stacked shadows: ring, lift, ambient. */
-  --shadow-border:
-    0 0 0 1px rgba(0, 0, 0, 0.06),
-    0 1px 2px -1px rgba(0, 0, 0, 0.06),
-    0 2px 4px 0 rgba(0, 0, 0, 0.04);
-  --shadow-border-hover:
-    0 0 0 1px rgba(0, 0, 0, 0.08),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06),
-    0 4px 12px -2px rgba(0, 0, 0, 0.06);
-
+  --shadow-border: 0 0 0 1px rgba(236, 236, 236, 0.1);
+  --shadow-border-hover: 0 0 0 1px rgba(236, 236, 236, 0.18);
 }
 
 @layer base {
   :root {
-    color-scheme: light dark;
-  }
-
-  /* Single source of truth — no `.dark` class, no duplication. */
-  html[data-theme="dark"] {
-    --color-bg: oklch(15% 0.005 270);
-    --color-bg-soft: oklch(19% 0.006 270);
-    --color-fg: oklch(96% 0.005 90);
-    --color-fg-muted: oklch(70% 0.01 270);
-    --color-fg-faint: oklch(52% 0.012 270);
-    --color-line: oklch(28% 0.008 270);
-    --color-accent: oklch(72% 0.18 28);
-
-    --shadow-border: 0 0 0 1px rgba(255, 255, 255, 0.08);
-    --shadow-border-hover: 0 0 0 1px rgba(255, 255, 255, 0.13);
     color-scheme: dark;
   }
 
@@ -80,7 +63,6 @@
     background-color: var(--color-bg);
     color: var(--color-fg);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -101,8 +83,13 @@
   }
 
   ::selection {
-    background-color: var(--color-fg);
-    color: var(--color-bg);
+    background-color: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
 
   a {
@@ -115,17 +102,18 @@
 /* ----- Hover-only utility (expose `hover-hover:*` variant) ----- */
 @custom-variant hover-hover (@media (hover: hover) and (pointer: fine));
 
-/* ----- Theme-swap transition disable ----- *
- * Toggle sets data-theme-transitioning, swaps the theme, then clears it on
- * the next frame. While set, EVERY element skips its transition — so only
- * the `startViewTransition` cross-fade animates, not 200 individual color
- * transitions all firing at once. */
-html[data-theme-transitioning],
-html[data-theme-transitioning] *,
-html[data-theme-transitioning] *::before,
-html[data-theme-transitioning] *::after {
-  transition: none !important;
-  animation: none !important;
+/* ----- CRT overlay ----- *
+ * Scanlines + soft vignette over the whole viewport. Mounted once in
+ * PageShell as <div class="crt" aria-hidden>. Non-interactive; sits under
+ * nothing that matters (content z-index stays below overlays like dialogs). */
+.crt {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.14) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse 120% 100% at 50% 50%, transparent 60%, rgba(0, 0, 0, 0.55) 100%);
 }
 
 /* ----- View Transitions ----- */
@@ -202,41 +190,16 @@ html[data-theme-transitioning] *::after {
       filter: blur(2px);
     }
   }
-
-  /* Spotlight reveal for theme toggle — circular clip from click point.
-     The toggle sets --x and --y as % strings on <html> before swapping. */
-  ::view-transition-old(root) {
-    z-index: 1;
-  }
-  ::view-transition-new(root) {
-    z-index: 2;
-  }
-
-  html.theme-spotlight::view-transition-old(root) {
-    animation: none;
-  }
-  html.theme-spotlight::view-transition-new(root) {
-    animation: theme-spot 420ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  @keyframes theme-spot {
-    from {
-      clip-path: circle(0% at var(--x, 50%) var(--y, 50%));
-    }
-    to {
-      clip-path: circle(150% at var(--x, 50%) var(--y, 50%));
-    }
-  }
 }
 
 /* ----- Hero enter (CSS-only stagger) -----
- * Each [data-hero-step] fades + lifts + unblurs in sequence. Skipped under
+ * Each [data-hero-step] fades + lifts in sequence. Skipped under
  * reduced-motion. The View Transitions API handles re-entry on subsequent
  * navigations, so this only runs on a fresh load. */
 @media (prefers-reduced-motion: no-preference) {
   [data-hero-step] {
     opacity: 0;
     transform: translateY(8px);
-    filter: blur(4px);
     animation: hero-in 520ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   }
   [data-hero-step="1"] { animation-delay: 0ms; }
@@ -250,14 +213,11 @@ html[data-theme-transitioning] *::after {
     to {
       opacity: 1;
       transform: translateY(0);
-      filter: blur(0);
     }
   }
 
   /* CSS-only row stagger. Children of any [data-stagger] container animate
-     in with a delay based on their --i custom prop. Visible by default
-     (initial keyframe handles the from-state) so no-JS / reduced-motion /
-     pre-hydration users see content immediately. */
+     in with a delay based on their --i custom prop. */
   [data-stagger] > * {
     animation: row-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
     animation-delay: calc(var(--row-base, 320ms) + var(--i, 0) * 60ms);
@@ -266,12 +226,10 @@ html[data-theme-transitioning] *::after {
     from {
       opacity: 0;
       transform: translateY(6px);
-      filter: blur(3px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
-      filter: blur(0);
     }
   }
 
@@ -281,7 +239,6 @@ html[data-theme-transitioning] *::after {
     display: inline-block;
     opacity: 0;
     transform: translateY(0.2em);
-    filter: blur(4px);
     animation: word-in 600ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     animation-delay: calc(var(--i, 0) * 60ms);
   }
@@ -289,15 +246,30 @@ html[data-theme-transitioning] *::after {
     to {
       opacity: 1;
       transform: translateY(0);
-      filter: blur(0);
     }
   }
 }
 
-/* ----- Reading progress (scroll-driven, no JS) -----
- * Only renders on supporting browsers. Refined: 1px hairline, gradient
- * fade so the leading edge is softer, hidden on short pages via container
- * query. */
+/* ----- Blinking block cursor ----- *
+ * The page's one always-live element. Green — the signal color. */
+.cursor-block {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  background: var(--color-accent);
+  vertical-align: text-bottom;
+  box-shadow: 0 0 10px rgba(48, 209, 88, 0.55);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cursor-block {
+    animation: cursor-blink 1s steps(1) infinite;
+  }
+  @keyframes cursor-blink {
+    50% { opacity: 0; }
+  }
+}
+
+/* ----- Reading progress (scroll-driven, no JS) ----- */
 @supports (animation-timeline: scroll()) {
   .reading-progress {
     position: fixed;
@@ -307,7 +279,7 @@ html[data-theme-transitioning] *::after {
       to bottom,
       var(--color-accent) 0%,
       var(--color-accent) 92%,
-      color-mix(in oklab, var(--color-accent) 50%, transparent) 100%
+      rgba(48, 209, 88, 0.5) 100%
     );
     transform-origin: top;
     transform: scaleY(0);
@@ -336,8 +308,8 @@ html[data-theme-transitioning] *::after {
   --prose-muted: var(--color-fg-muted);
   --prose-line: var(--color-line);
   color: var(--prose-body);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.95rem;
+  line-height: 1.75;
 }
 
 .prose > * + * {
@@ -347,7 +319,6 @@ html[data-theme-transitioning] *::after {
 .prose h1,
 .prose h2,
 .prose h3 {
-  font-family: var(--font-sans);
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--prose-body);
@@ -356,19 +327,28 @@ html[data-theme-transitioning] *::after {
 }
 
 .prose h1 {
-  font-size: 1.875rem;
-  line-height: 1.2;
+  font-size: 1.6rem;
+  line-height: 1.25;
   margin-top: 2em;
 }
 
 .prose h2 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   margin-top: 2.4em;
 }
 
+.prose h2::before,
+.prose h3::before {
+  content: "## ";
+  color: var(--color-fg-faint);
+}
+
 .prose h3 {
-  font-size: 1.0625rem;
+  font-size: 1rem;
   margin-top: 2em;
+}
+.prose h3::before {
+  content: "### ";
 }
 
 .prose p,
@@ -382,17 +362,19 @@ html[data-theme-transitioning] *::after {
 .prose a {
   color: var(--prose-body);
   text-decoration: underline;
-  text-decoration-color: var(--color-line);
+  text-decoration-color: var(--color-fg-faint);
   text-underline-offset: 0.25em;
-  transition: text-decoration-color 200ms ease;
+  transition: text-decoration-color 200ms ease, color 200ms ease;
 }
 
 .prose a:hover {
-  text-decoration-color: var(--color-fg);
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
 }
 
 .prose strong {
   font-weight: 600;
+  color: #ffffff;
 }
 
 .prose em {
@@ -400,21 +382,18 @@ html[data-theme-transitioning] *::after {
 }
 
 .prose code {
-  font-family: var(--font-mono);
-  font-size: 0.875em;
+  font-size: 0.9em;
   background: var(--color-bg-soft);
   padding: 0.15em 0.35em;
-  border-radius: 4px;
   border: var(--hairline) solid var(--color-line);
 }
 
 .prose pre {
-  font-family: var(--font-mono);
-  font-size: 0.8125em;
-  line-height: 1.65;
+  font-size: 0.85em;
+  line-height: 1.7;
   background: var(--color-bg-soft);
   border: var(--hairline) solid var(--color-line);
-  border-radius: 10px; /* outer = inner + padding-ish; pre has 16-18px pad, no nested radii */
+  border-radius: 8px;
   padding: 1rem 1.15rem;
   overflow-x: auto;
 }
@@ -427,15 +406,14 @@ html[data-theme-transitioning] *::after {
 }
 
 .prose blockquote {
-  border-left: 2px solid var(--color-line);
+  border-left: 2px solid var(--color-accent);
   padding-left: 1rem;
   color: var(--prose-muted);
-  font-style: italic;
 }
 
 .prose hr {
   border: 0;
-  border-top: var(--hairline) solid var(--color-line);
+  border-top: var(--hairline) dashed var(--color-line);
   margin: 2.5em 0;
 }
 
@@ -445,23 +423,17 @@ html[data-theme-transitioning] *::after {
 }
 
 .prose ul li {
-  list-style: disc;
+  list-style: square;
 }
 
 .prose ol li {
   list-style: decimal;
 }
 
-/* Image outlines per the surfaces skill: pure black/white at 10% opacity,
-   inset via outline-offset so layout isn't affected. NEVER a tinted color. */
 .prose img {
-  border-radius: 8px;
-  outline: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  outline: 1px solid rgba(255, 255, 255, 0.1);
   outline-offset: -1px;
-}
-
-html[data-theme="dark"] .prose img {
-  outline-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Autolinked headings wrap their text in an <a>. Strip the underline. */
@@ -471,11 +443,7 @@ html[data-theme="dark"] .prose img {
   text-decoration: none;
 }
 
-/* ----- Hairline divider utility used widely in JSX -----
- * Implemented as a box-shadow rather than a real border so it doesn't
- * affect layout or hit-test the row. Lives in @layer components so any
- * Tailwind utility (which sits in @layer utilities) — like the row hover —
- * can override the box-shadow without a specificity war. */
+/* ----- Hairline divider utility used widely in JSX ----- */
 @layer components {
   .divider {
     box-shadow: 0 var(--hairline) 0 0 var(--color-line);

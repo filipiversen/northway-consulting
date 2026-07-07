@@ -1,17 +1,11 @@
 import type { JSX } from "solid-js";
-import { clientOnly } from "@solidjs/start";
 import { profile } from "~/content/profile";
-
-const ThemeToggle = clientOnly(() => import("./islands/ThemeToggle"));
 
 type Props = {
   children: JSX.Element;
   /** Constrain the main column to prose width (default) or let it run wide. */
   wide?: boolean;
 };
-
-const NAV_LINK =
-  "relative -my-2 py-2 transition-colors duration-150 ease hover-hover:hover:text-fg";
 
 /** North-star mark — a four-point sparkle. Inherits color from its parent. */
 export function NorthStar(props: { class?: string }) {
@@ -28,93 +22,94 @@ export function NorthStar(props: { class?: string }) {
 }
 
 const NAV = [
-  { label: "Services", href: "/services" },
-  { label: "Work", href: "/projects" },
-  { label: "Notes", href: "/notes" },
-  { label: "About", href: "/about" },
+  { label: "services", href: "/services" },
+  { label: "work", href: "/projects" },
+  { label: "notes", href: "/notes" },
+  { label: "about", href: "/about" },
 ];
 
 export default function PageShell(props: Props) {
   return (
     <div
-      class={`mx-auto flex min-h-screen w-full flex-col px-6 py-8 md:px-8 md:py-12 ${
-        props.wide ? "max-w-5xl" : "max-w-prose"
+      class={`relative mx-auto flex min-h-screen w-full flex-col px-6 py-6 md:px-8 md:py-8 ${
+        props.wide ? "max-w-[60rem]" : "max-w-prose"
       }`}
     >
+      {/* CRT scanlines + vignette over everything, purely decorative. */}
+      <div class="crt" aria-hidden="true" />
+
       {/* Top anchor for the footer "↑ top" link */}
       <span id="top" class="sr-only" />
 
-      <header class="mb-12 flex items-center justify-between gap-4 text-sm md:mb-16">
+      <header class="divider mb-12 flex items-center justify-between gap-4 pb-5 text-[0.8rem] md:mb-14">
         <a
           href="/"
           aria-label={`Home — ${profile.name}`}
-          class="relative -m-2 p-2 transition-opacity hover-hover:hover:opacity-70"
+          class="font-semibold transition-colors hover-hover:hover:text-accent"
         >
-          <span class="font-manrope text-[19px] font-extrabold leading-tight tracking-tight text-fg sm:text-[22px] md:text-[25px]">
-            northway.consulting
-          </span>
+          northway@prod:~
         </a>
 
-        <nav class="flex items-center gap-4 font-mono text-xs uppercase tracking-[0.08em] text-fg-muted sm:gap-5">
+        <nav class="flex items-center gap-4 text-fg-muted sm:gap-5">
           {NAV.map((item) => (
-            <a href={item.href} class={`${NAV_LINK} hidden sm:inline`}>
+            <a
+              href={item.href}
+              class="hidden transition-colors hover-hover:hover:text-fg hover-hover:hover:underline hover-hover:hover:underline-offset-[0.3em] sm:inline"
+            >
               {item.label}
             </a>
           ))}
           <a
             href="/ai-audit"
-            class="whitespace-nowrap rounded-full border border-line px-3 py-1 text-fg transition-colors hover-hover:hover:border-fg"
+            class="whitespace-nowrap border border-line px-3 py-1.5 text-[0.75rem] font-semibold text-fg transition-colors hover-hover:hover:border-accent hover-hover:hover:text-accent"
           >
-            Free Audit →
+            ./free-audit
           </a>
-          <ThemeToggle />
         </nav>
       </header>
 
       <main class="flex-1">{props.children}</main>
 
-      <footer class="mt-24 border-t border-line pt-8 font-mono text-xs text-fg-faint md:mt-32">
+      <footer class="mt-24 border-t border-line pt-8 text-xs text-fg-faint md:mt-28">
         <div class="mb-6 flex flex-wrap items-start justify-between gap-6">
           <div class="max-w-xs">
             <a href="/" class="flex items-center gap-2 text-fg">
-              <NorthStar class="h-3.5 w-3.5 text-accent" />
-              <span class="font-display text-sm font-semibold tracking-tight">
-                Northway
-              </span>
+              <span class="font-semibold">northway.consulting</span>
+              <span class="cursor-block h-[0.9em] w-[0.5em]" aria-hidden="true" />
             </a>
-            <p class="mt-3 normal-case leading-relaxed text-fg-muted">
+            <p class="mt-3 leading-relaxed text-fg-muted">
               {profile.tagline} {profile.location}.
             </p>
           </div>
 
           <nav class="flex flex-col gap-2">
-            <span class="text-fg-faint/70">Site</span>
+            <span class="text-fg-faint/80"># site</span>
             {NAV.map((item) => (
               <a
                 href={item.href}
-                class="text-fg-muted transition-colors hover-hover:hover:text-fg"
+                class="text-fg-muted transition-colors hover-hover:hover:text-accent"
               >
                 {item.label}
               </a>
             ))}
             <a
               href="/contact"
-              class="text-fg-muted transition-colors hover-hover:hover:text-fg"
+              class="text-fg-muted transition-colors hover-hover:hover:text-accent"
             >
-              Contact
+              contact
             </a>
           </nav>
 
           <nav class="flex flex-col gap-2">
-            <span class="text-fg-faint/70">Elsewhere</span>
+            <span class="text-fg-faint/80"># elsewhere</span>
             {profile.links.map((link) => (
               <a
                 href={link.href}
-                class="text-fg-muted transition-colors hover-hover:hover:text-fg"
+                class="text-fg-muted transition-colors hover-hover:hover:text-accent"
                 target={link.href.startsWith("http") ? "_blank" : undefined}
                 rel={link.href.startsWith("http") ? "noreferrer" : undefined}
               >
-                {link.label}
+                {link.label.toLowerCase()}
               </a>
             ))}
           </nav>
@@ -122,11 +117,11 @@ export default function PageShell(props: Props) {
 
         <div class="flex flex-wrap items-center justify-between gap-3 border-t border-line pt-5">
           <span>
-            © {new Date().getFullYear()} {profile.name}
+            © {new Date().getFullYear()} {profile.name} · session persistent
           </span>
           <a
             href="#top"
-            class="-my-2 py-2 transition-colors duration-150 ease hover-hover:hover:text-fg"
+            class="-my-2 py-2 transition-colors hover-hover:hover:text-accent"
             aria-label="Scroll to top"
           >
             ↑ top

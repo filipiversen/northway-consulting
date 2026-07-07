@@ -22,6 +22,7 @@ export default defineConfig({
         "/about",
         "/contact",
         "/ai-audit",
+        "/thanks",
       ],
     },
   },
