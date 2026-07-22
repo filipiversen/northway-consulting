@@ -7,10 +7,10 @@ import { projects } from "~/content/projects";
 export default function ProjectsIndex() {
   return (
     <PageShell wide>
-      <Title>Work — {profile.name}</Title>
+      <Title>Work · {profile.name}</Title>
       <Meta
         name="description"
-        content="Case studies from Northway — the systems we've actually shipped, running in production."
+        content="Case studies from Northway: the systems we've shipped, running in production."
       />
 
       <header class="mb-12 max-w-2xl">
@@ -30,7 +30,7 @@ export default function ProjectsIndex() {
           data-hero-step="3"
           class="text-pretty text-base leading-relaxed text-fg-muted md:text-[1.0625rem]"
         >
-          Real software built for real businesses — modern foundations, shipped
+          Software built for real businesses: modern foundations, shipped
           by small teams, running in production. A few of these are drawn from
           the founding team's work; swap in client engagements as they go live.
         </p>

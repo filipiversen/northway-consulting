@@ -7,7 +7,7 @@ import { profile } from "~/content/profile";
 const DELIVERABLES = [
   {
     title: "Manual-work inventory",
-    body: "A written list of every recurring manual process we surface, grouped by function — sales, ops, finance, support.",
+    body: "A written list of every recurring manual process we surface, grouped by function: sales, ops, finance, support.",
   },
   {
     title: "Real-dollar cost per workflow",
@@ -37,13 +37,13 @@ const PROCESS = [
   {
     when: "3–5 days after",
     title: "Your written report lands",
-    body: "A PDF with the inventory, the cost math, and the ranked roadmap. No follow-up pressure — the next email is yours to send.",
+    body: "A PDF with the inventory, the cost math, and the ranked roadmap. No follow-up pressure. The next email is yours to send.",
   },
 ];
 
 const FIT = [
   "Your team is 20–500 people, with operations heavy enough to feel it.",
-  "Someone already builds Zapier or Make workflows — they're just stretched thin.",
+  "Someone already builds Zapier or Make workflows; they're just stretched thin.",
   "You've heard “we should automate this” about the same three processes for two years.",
   "Your CRM, project management, and finance tools don't talk to each other cleanly.",
   "You've explored AI tools but don't know which are worth the subscription.",
@@ -61,7 +61,7 @@ const FAQ = [
   },
   {
     q: "Who should be on the call?",
-    a: "Whoever has the clearest view of operational pain — usually a COO, Head of Ops, or founder. If a few people are relevant, invite them.",
+    a: "Whoever has the clearest view of operational pain, usually a COO, Head of Ops, or founder. If a few people are relevant, invite them.",
   },
   {
     q: "What happens to our information?",
@@ -72,7 +72,7 @@ const FAQ = [
 export default function AiAudit() {
   return (
     <PageShell wide>
-      <Title>Free AI Automation Audit — {profile.name}</Title>
+      <Title>Free AI Automation Audit · {profile.name}</Title>
       <Meta
         name="description"
         content="A free 1-hour audit to find the ghost employee your team is already paying. Written roadmap, real-dollar costs, no obligation."
@@ -100,7 +100,7 @@ export default function AiAudit() {
         >
           A free, no-obligation audit. We spend an hour mapping your team's
           manual work, cost it out in real dollars, and leave you with a written
-          roadmap — whether you build with us or not.
+          roadmap, whether you build with us or not.
         </p>
         <div data-hero-step="4" class="mt-8 flex flex-wrap gap-3">
           <a
@@ -136,7 +136,7 @@ export default function AiAudit() {
           </p>
           <p>
             None of it feels worth fixing on its own. Together, it's typically
-            10–30 hours a week you're already paying for — just not in a
+            10–30 hours a week you're already paying for, just not in a
             single line item.
           </p>
           <p class="text-fg">

@@ -1,0 +1,55 @@
+---
+title: Your Prompts Have a Version Number
+description: "Model vendors now ship a manual with every release. If your automation still runs last year's prompts, you're paying for a model you're not using."
+date: 2026-07-04
+tag: engineering
+---
+
+Anthropic ships a manual with its models now. [The prompting
+guide](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices)
+has a section per model, a list of behaviors that changed, and migration
+notes for prompts written against the previous generation. Most teams
+running AI in production have never opened it.
+
+[A post that made the rounds](https://x.com/cyrilXBT/status/2072706408710058492)
+when Fable 5 launched put it plainly: before you run the same prompts
+you used on the last model, read the guide. We'd push it one step
+further. The existence of per-model migration notes tells you something
+about what a prompt is. It's code, and the compiler changes underneath
+it a few times a year.
+
+## Old prompts carry old scar tissue
+
+Every production prompt accumulates workarounds for the model it was
+written against. The ALL-CAPS instruction the old model kept ignoring.
+The prefilled response forcing a format. The three examples added to
+stop a specific misbehavior in March.
+
+New models follow instructions more literally and support structured
+outputs directly, so the scar tissue stops being harmless. A compensation
+for a bug that no longer exists is now an instruction the model will
+dutifully obey, and you won't know what it costs you until something
+reads strangely in front of a customer.
+
+Anthropic's own golden rule for prompts is worth stealing for every
+instruction your automation carries: "Show your prompt to a colleague
+with minimal context on the task and ask them to follow it. If they'd be
+confused, Claude will be too."
+
+## How we handle it
+
+In the systems we run, prompts sit in version control next to the code,
+and each one records the model it was written for. A model upgrade is a
+change to both, and it goes through [the same eval
+harness](/notes/a-model-upgrade-is-not-a-release) as any release. The
+migration checklist is short:
+
+1. Read the vendor's model-specific notes. They exist because behavior
+   changed.
+2. Delete workarounds before adding anything. Most migrations should
+   make prompts shorter.
+3. Run the eval suite and compare, then ship the number, with the new
+   model and the pruned prompt together.
+
+> A prompt without a version number is a prompt nobody maintains. The
+> manual is free. The drift isn't.

@@ -1,0 +1,56 @@
+---
+title: Your Attention Does Not Parallelize
+description: "Running twenty agents feels like progress. Then every decision they queue up lands on one desk: yours."
+date: 2026-07-06
+tag: operations
+---
+
+Starting an AI agent now costs one sentence. So teams start twenty.
+
+The dashboards light up. Branches multiply. It feels like hiring a
+department in an afternoon. Then the work comes back, and every merge,
+every judgment call, every "is this right?" lands on the same place it
+always did: one human's attention.
+
+[Addy Osmani calls this the orchestration tax](https://addyosmani.com/blog/orchestration-tax/),
+and it's the best name we've seen for the thing our clients keep running
+into. Agents parallelize. You don't. Spawning the work is cheap; closing
+the loop is expensive. Add agents past your capacity to review them and
+you're not building a fleet, you're building a queue.
+
+## The review budget is the real limit
+
+We size automation projects around a number most teams never write down:
+how many decisions per day the responsible human can make well. The tooling
+will happily run hundreds of agents. Your judgment supports single
+digits.
+
+That number decides everything downstream. Which tasks get delegated
+fully, which stay sequential, and which never should have gone to an
+agent at all.
+
+## What we do about it
+
+Three moves keep the tax low in the systems we run:
+
+**Verify mechanically.** If a check can be a test, an eval, or a schema,
+it should never spend human attention. People review the judgment calls;
+machines review the rest.
+
+**Route by risk.** Our invoice-intake agents post routine matches
+straight through and queue only the exceptions, like a 2% price variance,
+for a person. One decision surfaces instead of four hundred.
+
+**Batch the loop.** Ten small interruptions cost more than one sitting of
+ten reviews. We design approval queues, so the human closes loops on
+their schedule instead of the agent's.
+
+## Busy is not shipped
+
+Twenty running agents produce a convincing feeling of productivity. The
+feeling is decoupled from output. What ships is whatever survives review,
+and review runs at the speed of one person thinking clearly.
+
+> Before adding another agent, price the attention it will consume.
+> That's the line item nobody puts in the automation business case, and
+> it's the one that decides whether the whole thing pays off.

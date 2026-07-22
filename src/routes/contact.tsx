@@ -20,7 +20,7 @@ const FORM_ACTION = "/api/contact";
 export default function Contact() {
   return (
     <PageShell wide>
-      <Title>Contact — {profile.name}</Title>
+      <Title>Contact · {profile.name}</Title>
       <Meta
         name="description"
         content="Get in touch with Northway about AI automation, custom software, or a free audit. No pitch, no pressure."
@@ -63,7 +63,7 @@ export default function Contact() {
             <p class="mt-2 text-pretty text-sm leading-relaxed text-fg-muted">
               Pick a time that works. We'll listen to what's hurting, tell you
               honestly whether AI automation can help, and point you at the next
-              step — whether that's with us or not.
+              step, whether that's with us or not.
             </p>
             <a
               href={`mailto:${profile.email}?subject=Discovery%20call`}

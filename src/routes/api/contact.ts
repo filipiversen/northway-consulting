@@ -78,7 +78,7 @@ export async function POST(event: APIEvent) {
     return fail("That email address doesn't look right.", 422);
   }
   if (message.length > MAX_MESSAGE) {
-    return fail("That message is a little long — please trim it down.", 422);
+    return fail("That message is a little long. Please trim it down.", 422);
   }
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -106,7 +106,7 @@ export async function POST(event: APIEvent) {
         from,
         to,
         reply_to: email,
-        subject: `New inquiry (${topic}) — ${name}`,
+        subject: `New inquiry () from `,
         text: `Name: ${name}\nEmail: ${email}\nTopic: ${topic}\n\n${message}`,
         html:
           `<h2>New inquiry via northway.consulting</h2>` +

@@ -10,7 +10,7 @@ const TRACK = [
   },
   {
     title: "Design systems at scale",
-    body: "Tokens and component libraries implemented in code — the connective tissue that lets product, engineering, and marketing move as one.",
+    body: "Tokens and component libraries implemented in code: the connective tissue that lets product, engineering, and marketing move as one.",
   },
   {
     title: "AI-first products",
@@ -25,7 +25,7 @@ const TRACK = [
 const BRINGS = [
   {
     title: "Full-stack architecture",
-    body: "TypeScript end to end, headless APIs, serverless and managed infrastructure — production systems across every layer.",
+    body: "TypeScript end to end, headless APIs, serverless and managed infrastructure. Production systems across every layer.",
   },
   {
     title: "AI engineering",
@@ -33,11 +33,11 @@ const BRINGS = [
   },
   {
     title: "Design that ships",
-    body: "Design systems and interfaces built in code, so what gets designed is what gets shipped — down to the last hairline.",
+    body: "Design systems and interfaces built in code, so what gets designed is what gets shipped, down to the last hairline.",
   },
   {
     title: "Senior judgment",
-    body: "We've made the expensive mistakes already. You get the decision, not the detour.",
+    body: "We've made the expensive mistakes already; you get the decision without the detour.",
   },
 ];
 
@@ -48,7 +48,7 @@ const VALUES = [
   },
   {
     title: "Foundations first",
-    body: "Design system, headless API, real CI. Invest once and everything after it gets cheaper.",
+    body: "Design system, headless API, working CI. Invest once and everything after it gets cheaper.",
   },
   {
     title: "Honest counsel",
@@ -56,17 +56,17 @@ const VALUES = [
   },
   {
     title: "Own the outcome",
-    body: "We run what we build and stay accountable for whether it actually works.",
+    body: "We run what we build and stay accountable for whether it works.",
   },
 ];
 
 export default function About() {
   return (
     <PageShell wide>
-      <Title>About — {profile.name}</Title>
+      <Title>About · {profile.name}</Title>
       <Meta
         name="description"
-        content="Northway is an AI consulting practice built on senior engineering judgment — practical AI, shipped to production, run for the long term."
+        content="Northway is an AI consulting practice built on senior engineering judgment: practical AI, shipped to production, run for the long term."
       />
 
       {/* Hero */}
@@ -87,12 +87,10 @@ export default function About() {
           data-hero-step="3"
           class="mt-6 max-w-[40rem] text-pretty text-base leading-relaxed text-fg-muted md:text-lg"
         >
-          Northway is an AI consulting practice — a network of senior engineers
+          Northway is an AI consulting practice: a network of senior engineers
           and AI specialists, founded and operated by{" "}
-          <span class="text-fg">Filip Iversen</span>. We design, build, and run
-          intelligent systems — custom agents, workflow automation, and the
-          engineering judgment to ship them — for teams that want results, not
-          pilots.
+          <span class="text-fg">Filip Iversen</span>. We design, build, and
+          run intelligent systems for teams that want results, not pilots.
         </p>
       </section>
 
@@ -104,12 +102,12 @@ export default function About() {
           </p>
           <p class="max-w-2xl text-pretty text-lg leading-relaxed text-fg-muted">
             Northway runs as a{" "}
-            <span class="font-medium text-fg">network, not an agency</span> — a
+            <span class="font-medium text-fg">network rather than an agency</span>: a
             tight bench of senior engineers and AI specialists assembled around
             the shape of each engagement.{" "}
             <span class="font-medium text-fg">Filip</span> stays your single
             point of contact from first call to launch, so you get a bigger
-            team's range without the handoffs — and one person who's always
+            team's range without the handoffs, and one person who's always
             accountable for the outcome.
           </p>
         </div>
@@ -127,14 +125,14 @@ export default function About() {
         <div class="space-y-4 text-pretty leading-relaxed text-fg-muted">
           <p>
             The interesting work in an AI project is rarely the model. It's
-            everything around it — the foundations that decide whether a clever
+            everything around it: the foundations that decide whether a clever
             demo becomes a system your business can lean on.
           </p>
           <p>
             We've learned the same lesson in fintech, insurance, and product
-            startups: a real design system, a headless API, and disciplined
+            startups: a design system, a headless API, and disciplined
             engineering let a small team ship like a much bigger one. Northway
-            exists to bring that leverage to teams adopting AI — without the
+            exists to bring that leverage to teams adopting AI, without the
             pilot purgatory most of them get stuck in.
           </p>
         </div>

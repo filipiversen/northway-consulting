@@ -53,7 +53,7 @@ function ServiceCard(props: { service: Service; index: number }) {
 export default function ServicesIndex() {
   return (
     <PageShell wide>
-      <Title>Services — {profile.name}</Title>
+      <Title>Services · {profile.name}</Title>
       <Meta
         name="description"
         content="Ten ways Northway works: operations audits, AI agents, workflow automation, systems integration, strategy, fractional CTO, custom software, RAG, managed AI ops, and product design."
@@ -77,7 +77,7 @@ export default function ServicesIndex() {
           class="text-pretty text-base leading-relaxed text-fg-muted md:text-[1.0625rem]"
         >
           From operations audits to full automation buildouts, custom agents to
-          fractional engineering leadership — {services.length} focused
+          fractional engineering leadership: {services.length} focused
           offerings, each with its own page. Not sure where to start? The{" "}
           <a
             href="/ai-audit"

@@ -17,7 +17,7 @@ export default function ServicePage() {
         fallback={
           <>
             <HttpStatusCode code={404} />
-            <Title>Not found — {profile.name}</Title>
+            <Title>Not found · {profile.name}</Title>
             <h1 class="font-display text-2xl font-semibold tracking-tight">
               Not found
             </h1>
@@ -36,7 +36,7 @@ export default function ServicePage() {
         {(s) => (
           <article>
             <Title>
-              {s().title} — {profile.name}
+              {s().title} · {profile.name}
             </Title>
             <Meta name="description" content={s().focus} />
 
@@ -144,7 +144,7 @@ export default function ServicePage() {
                   Could this fit your team?
                 </h2>
                 <p class="mt-2 max-w-md text-pretty text-fg-muted">
-                  Start with a free audit — we'll tell you honestly whether{" "}
+                  Start with a free audit. We'll tell you honestly whether{" "}
                   {s().title.toLowerCase()} is worth it for you.
                 </p>
               </div>

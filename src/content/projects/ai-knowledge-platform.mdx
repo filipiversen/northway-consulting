@@ -1,6 +1,6 @@
 ---
 title: The Plugin Request That Became an AI Knowledge Platform
-description: How a request for "better search" turned into a custom, citation-backed AI engine — and what it takes to build AI people can trust.
+description: How a request for "better search" turned into a custom, citation-backed AI engine, and what it takes to build AI people can trust.
 date: 2026-06-10
 role: Strategy · AI Engineering
 status: shipped
@@ -8,8 +8,8 @@ status: shipped
 
 > "Can you just make our search better?"
 
-That was the ask. A regional innovation ecosystem — a network of organizations,
-funding programs, startups, and the people who connect them — was sitting on a
+That was the ask. A regional innovation network (organizations,
+funding programs, startups, and the people who connect them) was sitting on a
 wealth of information that almost nobody could find. Resources lived in PDFs, on
 scattered partner websites, in program one-pagers. The plan on the table was the
 familiar one: bolt a search-and-filter plugin onto the existing site, sprinkle
@@ -18,10 +18,10 @@ in a bit of "AI," and call it done.
 We looked at what they were really trying to do and told them the plugin
 wouldn't get them there.
 
-What they were describing — pulling trustworthy answers from a curated set of
+What they were describing, pulling trustworthy answers from a curated set of
 approved documents, attributing every answer to its source, powering a public
 map and directory from that same information, and keeping it all current without
-a staffer babysitting it — is not a search box. It's a custom knowledge
+a staffer babysitting it, is not a search box. It's a custom knowledge
 platform. The cheap option would have quietly failed at the one thing they
 actually cared about, and they'd have been back a year later having spent the
 budget anyway.
@@ -32,7 +32,7 @@ So we built the real thing.
 
 The difference matters more than it sounds. A plugin searches the words already
 on your website. What this client needed was a system that could ingest new
-material — upload a PDF or paste a link, and have the platform read it,
+material: upload a PDF or paste a link, and have the platform read it,
 understand it, summarize it, and fold it into a searchable body of knowledge
 that an AI could reason over.
 
@@ -40,25 +40,25 @@ That meant building, from the ground up:
 
 - **An ingestion pipeline** that accepts PDFs and URLs, extracts the real
   content (stripping nav bars, ads, and boilerplate), and handles the messy
-  reality of the web — including JavaScript-heavy pages that don't render their
+  reality of the web, including JavaScript-heavy pages that don't render their
   content until a browser runs them.
 - **A retrieval engine** that finds the right passages for a given question.
 - **A grounded answer layer** that uses a large language model to write a
-  natural-language response constrained to the approved material — and cites it.
+  natural-language response constrained to the approved material, and cites it.
 - **A curation workflow** so a human reviews and approves everything before the
   public ever sees it.
-- **A public directory and map** of the ecosystem's organizations and programs,
+- **A public directory and map** of the network's organizations and programs,
   driven by the very same database.
 
 One system. Two products. A whole lot of careful engineering in between.
 
 ## The hard part: AI that tells the truth
 
-Here's the thing most people get wrong about putting AI in front of customers.
-The impressive-demo version is easy. The version you can actually stand behind is
+Most people get one thing wrong about putting AI in front of customers.
+The impressive-demo version is easy. The version you can stand behind is
 not.
 
-The number-one risk with AI answers is confident nonsense — the model inventing
+The number-one risk with AI answers is confident nonsense: the model inventing
 a program that doesn't exist or misattributing a fact. For an organization whose
 credibility is its whole value, that's not a glitch, it's a reputational
 liability. So trust was the design constraint, not an afterthought.
@@ -70,7 +70,7 @@ draws exclusively from documents a human has reviewed and published. Ask it
 something outside that body of knowledge and it won't improvise.
 
 **Every answer points to its evidence.** When the system retrieves information,
-it tracks the exact passage that matched your question and cites it — not a vague
+it tracks the exact passage that matched your question and cites it, not a vague
 "this came from somewhere on the site," but the specific chunk of the specific
 document the answer rests on. Getting this right took real work: an early version
 cited the first part of each document instead of the part that actually matched.
@@ -104,7 +104,7 @@ single source of truth. Approve an organization once and it shows up on the map,
 in the filterable directory, and as context the AI can draw on. Build the data
 model well once, and it pays off in every feature that touches it.
 
-## Software that keeps itself current — without erasing human judgment
+## Software that keeps itself current without erasing human judgment
 
 A knowledge base is only as good as its freshness, and nobody wants a job that
 says "re-check forty partner websites every week." So the platform refreshes its
@@ -112,7 +112,7 @@ published web sources automatically on a schedule.
 
 The subtle, important detail: re-ingestion preserves the human curation. When the
 system re-reads a source, it updates the underlying content and embeddings but
-keeps the edited titles, the polished summaries, and — critically — the publish
+keeps the edited titles, the polished summaries, and, critically, the publish
 status. An early version of this destroyed editorial work on every refresh,
 silently yanking reviewed resources back into the review queue. We found that
 during a review and rebuilt the flow so automation and human judgment coexist
@@ -134,14 +134,14 @@ This one was built to live in production:
   place.
 - The ingestion pipeline **retries on transient failures** with exponential
   backoff instead of giving up on the first network hiccup.
-- Errors return **honest, specific responses** — a 404 for something that doesn't
-  exist, a clear validation message for bad input — instead of opaque 500s.
+- Errors return **honest, specific responses** (a 404 for something that doesn't
+  exist, a clear validation message for bad input) instead of opaque 500s.
 
 We also did something we think every serious build deserves: a full written
 review of the codebase against the client's actual stated goals, scoring each one
 and documenting what was met, what was broken, and what was missing. That review
 caught a critical bug where the grounded AI answer was never being generated at
-all — the system looked like it was working while silently falling back to canned
+all: the system looked like it was working while silently falling back to canned
 responses every single time. Found, diagnosed, fixed, and verified end-to-end
 with a real browser driving the live app. That's the difference between "it
 compiles" and "it works."
@@ -149,7 +149,7 @@ compiles" and "it works."
 ## If you're thinking about AI for your business
 
 Most AI projects don't fail because the models aren't smart enough. They fail
-because they're wired up carelessly — ungrounded, unmaintained, impossible to
+because they're wired up carelessly: ungrounded, unmaintained, impossible to
 trust, and quietly broken in ways no one notices until a customer does.
 
 The value we bring is the opposite of that. We'll tell you when the cheap option
@@ -159,6 +159,6 @@ your goals, not just against whether the code runs.
 
 > If you're sitting on information your customers can't find, weighing whether
 > "add AI" is a real feature or a fantasy, or you've been burned by a demo that
-> fell apart in the real world — let's talk. The interesting problems are the
+> fell apart in the real world, let's talk. The interesting problems are the
 > ones where AI has to be trustworthy, and those are exactly the ones worth
 > building.

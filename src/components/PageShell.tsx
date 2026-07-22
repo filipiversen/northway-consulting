@@ -44,10 +44,10 @@ export default function PageShell(props: Props) {
       <header class="divider mb-12 flex items-center justify-between gap-4 pb-5 text-[0.8rem] md:mb-14">
         <a
           href="/"
-          aria-label={`Home — ${profile.name}`}
+          aria-label={`Home · ${profile.name}`}
           class="font-semibold transition-colors hover-hover:hover:text-accent"
         >
-          northway@prod:~
+          northway.consulting
         </a>
 
         <nav class="flex items-center gap-4 text-fg-muted sm:gap-5">
@@ -63,7 +63,7 @@ export default function PageShell(props: Props) {
             href="/ai-audit"
             class="whitespace-nowrap border border-line px-3 py-1.5 text-[0.75rem] font-semibold text-fg transition-colors hover-hover:hover:border-accent hover-hover:hover:text-accent"
           >
-            ./free-audit
+            Free audit
           </a>
         </nav>
       </header>
@@ -117,7 +117,7 @@ export default function PageShell(props: Props) {
 
         <div class="flex flex-wrap items-center justify-between gap-3 border-t border-line pt-5">
           <span>
-            © {new Date().getFullYear()} {profile.name} · session persistent
+            © {new Date().getFullYear()} {profile.name}
           </span>
           <a
             href="#top"

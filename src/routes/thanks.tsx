@@ -6,7 +6,7 @@ import { profile } from "~/content/profile";
 export default function Thanks() {
   return (
     <PageShell>
-      <Title>Thanks — {profile.name}</Title>
+      <Title>Thanks · {profile.name}</Title>
       <Meta name="robots" content="noindex" />
 
       <section class="flex flex-1 flex-col items-center justify-center py-20 text-center">
@@ -21,7 +21,7 @@ export default function Thanks() {
           data-hero-step="2"
           class="mt-4 max-w-md text-pretty text-fg-muted"
         >
-          Thanks for reaching out — we typically reply within 24 hours. If it's
+          Thanks for reaching out. We typically reply within 24 hours. If it's
           urgent, email us directly at{" "}
           <a
             href={`mailto:${profile.email}`}

@@ -29,7 +29,7 @@ export default function NotePost() {
         fallback={
           <>
             <HttpStatusCode code={404} />
-            <Title>Not found — {profile.name}</Title>
+            <Title>Not found · {profile.name}</Title>
             <h1 class="font-display text-2xl font-semibold tracking-tight">
               Not found
             </h1>
@@ -48,7 +48,7 @@ export default function NotePost() {
         {(p) => (
           <article>
             <Title>
-              {p().meta.title} — {profile.name}
+              {p().meta.title} · {profile.name}
             </Title>
             <Meta name="description" content={p().meta.description ?? ""} />
 

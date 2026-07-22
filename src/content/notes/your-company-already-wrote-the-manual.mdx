@@ -1,0 +1,54 @@
+---
+title: Your Company Already Wrote the Manual
+description: "Years of docs, tickets, and recordings are sitting in your systems unread. Linked together, they become the context that makes agents useful."
+date: 2026-06-28
+tag: practice
+---
+
+Every company we audit is sitting on a manual nobody can read. It's
+scattered across help-desk tickets, onboarding docs, Slack threads, call
+recordings, and the head of the one person who's been there eight years.
+
+Your first chatbot experiment disappointed because the model had never
+read any of that.
+
+[Nate Herk ran a nice version of this
+experiment](https://x.com/nateherk/status/2073165367355031711): he had an
+agent ingest his entire YouTube catalog into a linked wiki, without
+connecting a single concept by hand. Every video, tool, and technique now
+references the others, and his agents navigate the whole body of work.
+The material existed for years. The linking is what made it usable.
+
+## Knowledge that references itself
+
+A pile of documents and a knowledge base look similar in a demo. They
+behave differently in production. The difference is structure: this
+policy applies to that product, this fix resolved that error, this client
+conversation contradicts that doc.
+
+Agents are the first software that can build those links at scale.
+Reading ten thousand pages and cross-referencing them used to be a
+quarter of analyst time. It's now a weekend batch job. We built a
+[citation-backed knowledge platform](/projects/ai-knowledge-platform) on
+exactly this premise: curate the sources, let the system connect them,
+and make every answer cite the passage it came from.
+
+## Start with what exists
+
+The practical order of operations, in the engagements we run:
+
+1. Inventory what your company already produces. Tickets, docs, calls,
+   contracts. You are generating training material daily and discarding
+   it.
+2. Ingest it into one indexed, linked store with owners and publish
+   controls. Curation is a feature. A wiki that ingests everything
+   uncritically is just a bigger pile.
+3. Point your agents at it. The same automation that answered 60% of
+   questions with a generic model answers far more when it can cite your
+   own precedent.
+
+The compounding part is the point. Every ticket closed and call
+transcribed makes the next agent slightly better, automatically.
+
+> You don't have a content problem. You have a linking problem, and
+> linking is now cheap.

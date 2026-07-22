@@ -24,7 +24,7 @@ export default function ProjectPage() {
         fallback={
           <>
             <HttpStatusCode code={404} />
-            <Title>Not found — {profile.name}</Title>
+            <Title>Not found · {profile.name}</Title>
             <h1 class="font-display text-2xl font-semibold tracking-tight">
               Not found
             </h1>
@@ -43,7 +43,7 @@ export default function ProjectPage() {
         {(p) => (
           <article>
             <Title>
-              {p().meta.title} — {profile.name}
+              {p().meta.title} · {profile.name}
             </Title>
             <Meta name="description" content={p().meta.description} />
 

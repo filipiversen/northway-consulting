@@ -35,9 +35,9 @@ export const services: Service[] = [
     short: "Operations Audit",
     tier: "core",
     focus:
-      "We find the work that's actually worth automating — and prove the ROI before you spend a dollar building.",
+      "We find the work that is worth automating and prove the ROI before you spend a dollar building.",
     summary:
-      "Most teams have a ghost employee: ten to thirty hours a week of manual work nobody tracks. The audit finds it, names it, prices it in real dollars, and hands you a ranked roadmap — whether you build with us or not.",
+      "Most teams have a ghost employee: ten to thirty hours a week of manual work nobody tracks. The audit finds it, names it, prices it at your loaded hourly rate, and hands you a ranked roadmap, whether you build with us or not.",
     capabilities: [
       {
         title: "Automation ROI, ranked",
@@ -69,9 +69,9 @@ export const services: Service[] = [
     short: "AI Agents",
     tier: "core",
     focus:
-      "We build agents that do the boring, repetitive work your team is already doing — trained on your context, not a generic chatbot.",
+      "We build agents that do the boring, repetitive work your team is already doing, trained on your context rather than a generic chatbot.",
     summary:
-      "An agent is software with a loop and a toolbox. We build ones that handle real tasks end to end — research, triage, drafting, execution — grounded in your data and wired into the tools you already use, with guardrails and evals so they behave in production.",
+      "An agent is software with a loop and a toolbox. We build ones that handle whole tasks end to end (research, triage, drafting, execution), grounded in your data and wired into the tools you already use, with guardrails and evals so they behave in production.",
     capabilities: [
       {
         title: "Triage agents",
@@ -79,7 +79,7 @@ export const services: Service[] = [
       },
       {
         title: "Document agents",
-        body: "Extract, summarize, and generate documents — contracts, policies, reports — with citations.",
+        body: "Extract, summarize, and generate documents (contracts, policies, reports) with citations.",
       },
       {
         title: "Workflow agents",
@@ -105,7 +105,7 @@ export const services: Service[] = [
     focus:
       "We automate the work that's already on your team's plate, with measurable ROI in 30–60 days.",
     summary:
-      "Data pipelines, approval flows, document processing, the report someone rebuilds from scratch every month. We automate the repetitive operational work that's quietly eating hours — and we ship it fast enough that the payback is obvious.",
+      "Data pipelines, approval flows, document processing, the report someone rebuilds from scratch every month. We automate the repetitive operational work that's quietly eating hours, and we ship it fast enough that the payback is obvious.",
     capabilities: [
       {
         title: "Customer-facing triage",
@@ -113,7 +113,7 @@ export const services: Service[] = [
       },
       {
         title: "Back-office paperwork",
-        body: "Invoices, onboarding, compliance forms — captured, validated, and filed automatically.",
+        body: "Invoices, onboarding, compliance forms: captured, validated, and filed automatically.",
       },
       {
         title: "Internal knowledge assistants",
@@ -126,7 +126,7 @@ export const services: Service[] = [
     ],
     outcomes: [
       "Manual hours removed, measured before and after",
-      "A documented, owned automation — not a black box",
+      "A documented automation you own, not a black box",
       "ROI visible inside the first 60 days",
     ],
     tags: ["Automation", "Ops", "ROI"],
@@ -139,7 +139,7 @@ export const services: Service[] = [
     focus:
       "We connect the systems your team has been moving data between by hand.",
     summary:
-      "CRM, project management, finance, custom tools, data platforms — unified into one system that talks to itself. APIs, webhooks, and smart routing, built to scale and built to be understood by the next engineer who touches it.",
+      "CRM, project management, finance, custom tools, data platforms, unified into one system that talks to itself. APIs, webhooks, and smart routing, built to scale and built to be understood by the next engineer who touches it.",
     capabilities: [
       {
         title: "CRM ↔ ops sync",
@@ -171,7 +171,7 @@ export const services: Service[] = [
     short: "AI Strategy",
     tier: "core",
     focus:
-      "We figure out which AI investments are actually going to pay off — and which are hype.",
+      "We figure out which AI investments are going to pay off, and which are hype.",
     summary:
       "A clear-eyed read on where AI helps your business and where it doesn't. We size the opportunities, pick the models and vendors, settle build-vs-buy, and leave you with a roadmap your team can actually execute.",
     capabilities: [
@@ -205,7 +205,7 @@ export const services: Service[] = [
     short: "Fractional CTO",
     tier: "more",
     focus:
-      "We sit in your engineering org as a senior voice — architecture, hiring, and AI strategy — without taking equity.",
+      "We sit in your engineering org as a senior voice on architecture, hiring, and AI strategy, without taking equity.",
     summary:
       "For teams that need senior engineering judgment but not another full-time exec. We review architecture and code, help you hire and level, set technical and AI direction, and keep the roadmap honest.",
     capabilities: [
@@ -241,7 +241,7 @@ export const services: Service[] = [
     focus:
       "We build the software your business needs and can't buy off the shelf.",
     summary:
-      "Internal tools, customer-facing apps, data pipelines, AI-augmented features. Built on a modern, typed stack with the foundations — design system, headless API, CI — that let a small team ship like a big one.",
+      "Internal tools, customer-facing apps, data pipelines, AI-augmented features. Built on a modern, typed stack with the foundations (design system, headless API, CI) that let a small team ship like a big one.",
     capabilities: [
       {
         title: "Internal tools",
@@ -249,7 +249,7 @@ export const services: Service[] = [
       },
       {
         title: "Customer-facing web apps",
-        body: "Fast, accessible, and polished — the surface your customers judge you on.",
+        body: "Fast, accessible, and polished: the surface your customers judge you on.",
       },
       {
         title: "Data pipelines",
@@ -263,7 +263,7 @@ export const services: Service[] = [
     outcomes: [
       "Production software on a modern, maintainable stack",
       "A design system and API you can keep building on",
-      "Tests, CI, and docs included — not a prototype",
+      "Tests, CI, and docs included, not a prototype",
     ],
     tags: ["Full-stack", "TypeScript", "Product"],
   },
@@ -317,7 +317,7 @@ export const services: Service[] = [
       },
       {
         title: "Model upgrades",
-        body: "New models adopted safely behind evals — the gains without the surprises.",
+        body: "New models adopted safely behind evals: the gains without the surprises.",
       },
       {
         title: "Incident response",
@@ -341,7 +341,7 @@ export const services: Service[] = [
     short: "Product Design",
     tier: "more",
     focus:
-      "We design fast, real product interfaces and design systems — the polish that makes AI features feel trustworthy.",
+      "We design fast product interfaces and design systems: the polish that makes AI features feel trustworthy.",
     summary:
       "AI features live or die on how they feel. We design the interface and the design system underneath it: tokens, components, and interaction patterns that make automation legible, controllable, and worth trusting.",
     capabilities: [
@@ -379,7 +379,7 @@ export const engagement = [
   },
   {
     title: "Design",
-    body: "We architect the solution — the right tools, the logic, the integration plan, the guardrails.",
+    body: "We architect the solution: the right tools, the logic, the integration plan, the guardrails.",
   },
   {
     title: "Build & Test",

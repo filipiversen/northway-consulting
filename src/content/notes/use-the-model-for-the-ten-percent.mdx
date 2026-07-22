@@ -1,0 +1,49 @@
+---
+title: Use the Model for the 10% That Needs One
+description: The most reliable AI automations barely use AI. Plain code does the predictable work; the model handles only the judgment.
+date: 2026-07-02
+tag: engineering
+---
+
+The most dependable AI systems we've shipped have a secret: most of the
+pipeline isn't AI.
+
+Fetching the email is code. Parsing the attachment is code. Looking up
+the purchase order, writing to the ERP, posting the approval, all code.
+Deterministic, testable, boring. The model gets one job in the middle,
+the part that needs reading comprehension, and nothing else.
+
+We were glad to see [Kent C. Dodds land on the same
+principle](https://x.com/kentcdodds/status/2071983056697835787) building
+his agent tooling: augment the reliable machinery instead of replacing
+it with a probabilistic harness. Keep the integrations deterministic and let the model be a component, since a component can be
+swapped, tested, and blamed.
+
+## Why this wins
+
+**Failures become legible.** When a step is code, it fails loudly with a
+stack trace. When everything is one giant prompt, failures are vibes. You
+can't debug vibes at 2 a.m.
+
+**Costs stay flat.** Code runs for free. If the model only touches the
+10% that needs judgment, a workflow that runs 400 times a month costs
+dollars instead of hundreds of dollars.
+
+**Testing is possible.** The deterministic 90% gets ordinary tests. The
+model's 10% gets an eval suite with frozen real cases. Together the whole
+pipeline has a number attached to it, and you can upgrade models without
+holding your breath.
+
+**Trust accumulates.** An automation that behaves the same way every day
+earns the right to run unattended. One that improvises across the whole
+pipeline never does.
+
+## The design question we always ask
+
+For every step in a workflow: could a competent script do this? If yes,
+it's a script. What's left over is the AI problem, and it's usually
+smaller than anyone expected. That's good news. Small AI problems
+ship.
+
+> The goal was never "more AI." The goal is work that happens without
+> people. Most of that is plumbing, and plumbing should not improvise.

@@ -21,8 +21,8 @@ export const profile = {
   /** Firm blurb — footer + meta descriptions + about lead. */
   blurb:
     "Northway is an AI consulting practice. We design, build, and run " +
-    "intelligent systems — custom agents, workflow automation, and the " +
-    "engineering judgment to ship them — for teams that want results, not pilots.",
+    "intelligent systems for teams that want results, not pilots: custom " +
+    "agents, workflow automation, and the engineering judgment to ship them.",
 
   email: "hello@northway.consulting",
 

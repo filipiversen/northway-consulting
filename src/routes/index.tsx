@@ -122,7 +122,7 @@ export default function Home() {
   return (
     <PageShell wide>
       <Title>
-        {profile.name} — {profile.role}
+        {profile.name} · {profile.role}
       </Title>
       <Meta name="description" content={profile.blurb} />
       <style innerHTML={CSS} />
@@ -141,7 +141,7 @@ export default function Home() {
           class="mt-6 max-w-[52ch] text-[0.95rem] leading-[1.7] text-fg-muted text-pretty"
         >
           Northway builds and runs the agents and automations that take the
-          repetitive work off your team's hands — in production, not in a
+          repetitive work off your team's hands. In production, not in a
           pilot.
         </p>
 
@@ -170,13 +170,13 @@ export default function Home() {
             href="/ai-audit"
             class="bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
           >
-            ./free-audit
+            Get a free audit
           </a>
           <a
             href="/services"
             class="border border-fg px-6 py-3 text-sm font-semibold transition-colors hover-hover:hover:border-accent hover-hover:hover:text-accent active:translate-y-px"
           >
-            man services
+            Explore services
           </a>
         </div>
       </section>
@@ -205,13 +205,13 @@ export default function Home() {
                   <span aria-hidden="true" class="text-fg-faint">
                     ${" "}
                   </span>
-                  {s.slug}
+                  {s.title}
                 </h3>
                 <p class="mt-2 max-w-[62ch] text-[0.85rem] leading-relaxed text-fg-muted">
                   {s.focus}
                 </p>
                 <span class="mt-2.5 inline-block text-[0.72rem] text-fg-faint transition-colors group-hover:text-accent">
-                  --read-more
+                  Read more →
                 </span>
               </a>
             )}
@@ -228,8 +228,8 @@ export default function Home() {
           aria-label="A trace of weekly manual hours: volatile and high before automation, low and steady after"
         >
           <div class="home-scope-head" aria-hidden="true">
-            <span>CH1 · manual hours / week</span>
-            <span>TRIG: northway engagement</span>
+            <span>manual hours per week</span>
+            <span>a typical engagement</span>
           </div>
           <svg viewBox="0 0 720 240" aria-hidden="true">
             {/* Grey until the trigger line, green from the moment automation is live. */}
@@ -264,10 +264,10 @@ export default function Home() {
               before: <b>10–30 h/wk</b>
             </span>
             <span>
-              settle time: <b>30–60 days</b>
+              payback: <b>30–60 days</b>
             </span>
             <span>
-              noise floor: <b>monitored by us</b>
+              after: <b>monitored by us</b>
             </span>
           </div>
         </figure>
@@ -315,7 +315,7 @@ export default function Home() {
             href="/ai-audit"
             class="bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
           >
-            ./free-audit
+            Get a free audit
           </a>
           <a
             href={`mailto:${profile.email}`}

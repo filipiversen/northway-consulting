@@ -1,0 +1,53 @@
+---
+title: The Approval Fits in Your Pocket
+description: When agents do the building, the human's job shrinks to decisions. Decisions fit on a phone, and that changes how operations feel.
+date: 2026-06-20
+tag: operations
+---
+
+A developer we follow [shipped real features from his
+phone](https://x.com/KellehEyad/status/2073728292671127842) recently. No
+desk, no keyboard, no big screen. An agent did the building; he did the
+deciding. His conclusion was that some of his best sessions now happen
+away from the computer.
+
+Strip away the novelty and there's an operations lesson underneath.
+When the execution moves to agents, what's left of the human's job is
+decisions. And decisions are small. They fit in a notification.
+
+## The desk was for typing
+
+Most operational work historically required a workstation because the
+work was manipulation: typing into the ERP, reconciling the spreadsheet,
+assembling the report. The judgment buried inside it ("approve this,"
+"escalate that," "yes, that vendor") took seconds.
+
+Automation separates the two. The manipulation runs on a server all day.
+The judgment arrives wherever you are: *invoice 0117 matched PO-4482,
+flagged a 2% variance, approve or review?* That's a phone-sized question.
+Answering it from a hallway is the correctly sized interface for the
+decision.
+
+## What has to be true first
+
+Phone-sized approvals only work when the system underneath earns them.
+Three requirements, from the builds we run:
+
+**The summary must be trustworthy.** You're approving a description of
+the work, so the description has to be grounded in the underlying data, with
+the source one tap away.
+
+**The blast radius must be bounded.** A yes should commit exactly what
+was described. Hard guardrails decide what an agent is allowed to do with your
+approval.
+
+**The default must be safe.** If nobody answers, the system waits or
+routes onward. Silence is never consent.
+
+We design our approval queues to that standard, and it changes how teams
+experience automation. The system does the forty hours. The owner spends
+four minutes a day steering it, from wherever they happen to be standing.
+
+> When someone asks what an "agent in production" looks like, it isn't a
+> chat window. It's a quiet queue of well-formed questions, each one
+> small enough to answer from your pocket.
