@@ -3,19 +3,16 @@ import { Title, Meta } from "@solidjs/meta";
 import { clientOnly } from "@solidjs/start";
 import PageShell from "~/components/PageShell";
 import { profile } from "~/content/profile";
-import { services } from "~/content/services";
-
-const ContactFormEnhancer = clientOnly(
-  () => import("~/components/islands/ContactFormEnhancer"),
-);
 
 /**
- * The form posts to the /api/contact route, which sends the message via Resend.
- * Without JS it posts natively and the server redirects to /thanks; the
- * enhancer island below upgrades it with inline success / error states.
+ * Contact runs as a scripted chat (ContactChat) that posts to /api/contact,
+ * which sends the message via Resend. The chat needs JS; the noscript block
+ * offers email as the fallback.
  * Configure RESEND_API_KEY (+ optional CONTACT_TO_EMAIL / CONTACT_FROM_EMAIL).
  */
-const FORM_ACTION = "/api/contact";
+const ContactChat = clientOnly(
+  () => import("~/components/islands/ContactChat"),
+);
 
 const AUDIT_GETS = [
   "A manual-work inventory, grouped by function",
@@ -84,12 +81,6 @@ export default function Contact() {
                 )}
               </For>
             </ul>
-            <a
-              href={`mailto:${profile.email}?subject=Discovery%20call%20/%20AI%20audit`}
-              class="mt-5 inline-block bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
-            >
-              Request a call →
-            </a>
           </div>
 
           <div class="border-t border-line pt-8">
@@ -127,7 +118,7 @@ export default function Contact() {
                         rel="noreferrer"
                         class="underline decoration-line underline-offset-[0.2em] transition-colors hover-hover:hover:decoration-fg"
                       >
-                        {profile.name} →
+                        {link.text} →
                       </a>
                     </dd>
                   </div>
@@ -143,103 +134,28 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right: form */}
+        {/* Right: the chat */}
+        {/* lg: the card takes its height from the left column (grid row) and
+            the chat fills it absolutely, so long conversations scroll inside
+            instead of stretching the card. */}
         <div
           data-hero-step="5"
-          class="rounded-lg border border-line bg-bg-soft p-6 md:p-8"
+          class="rounded-lg border border-line bg-bg-soft p-6 md:p-8 lg:relative"
         >
-          <form
-            action={FORM_ACTION}
-            method="post"
-            data-contact-form
-            class="space-y-5"
-          >
-            <div>
-              <label
-                for="name"
-                class="mb-1.5 block font-mono text-xs uppercase tracking-[0.08em] text-fg-faint"
+          <ContactChat />
+          <noscript>
+            <div class="rounded-lg border border-line bg-bg p-5 text-sm leading-relaxed text-fg-muted">
+              The contact assistant needs JavaScript. If you'd rather not
+              enable it, email{" "}
+              <a
+                href={`mailto:${profile.email}`}
+                class="underline decoration-line underline-offset-[0.2em]"
               >
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                class="w-full rounded-lg border border-line bg-bg px-3 py-2.5 text-sm outline-none transition-colors focus:border-fg"
-              />
+                {profile.email}
+              </a>{" "}
+              and we'll take it from there.
             </div>
-            <div>
-              <label
-                for="email"
-                class="mb-1.5 block font-mono text-xs uppercase tracking-[0.08em] text-fg-faint"
-              >
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                class="w-full rounded-lg border border-line bg-bg px-3 py-2.5 text-sm outline-none transition-colors focus:border-fg"
-              />
-            </div>
-            <div>
-              <label
-                for="topic"
-                class="mb-1.5 block font-mono text-xs uppercase tracking-[0.08em] text-fg-faint"
-              >
-                What can we help with?
-              </label>
-              <select
-                id="topic"
-                name="topic"
-                class="w-full rounded-lg border border-line bg-bg px-3 py-2.5 text-sm outline-none transition-colors focus:border-fg"
-              >
-                <option value="general">General inquiry</option>
-                <option value="audit">Discovery call / AI audit</option>
-                <option value="retainer">Monthly retainer</option>
-                <For each={services}>
-                  {(s) => <option value={s.slug}>{s.title}</option>}
-                </For>
-                <option value="other">Something else</option>
-              </select>
-            </div>
-            <div>
-              <label
-                for="message"
-                class="mb-1.5 block font-mono text-xs uppercase tracking-[0.08em] text-fg-faint"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-                class="w-full resize-y rounded-lg border border-line bg-bg px-3 py-2.5 text-sm outline-none transition-colors focus:border-fg"
-              />
-            </div>
-            {/* Honeypot — hidden from humans, catches bots. */}
-            <input
-              type="text"
-              name="_gotcha"
-              tabindex="-1"
-              autocomplete="off"
-              aria-hidden="true"
-              class="absolute left-[-9999px] h-0 w-0 opacity-0"
-            />
-            <button
-              type="submit"
-              class="w-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
-            >
-              Send message →
-            </button>
-            <p class="text-center text-xs text-fg-faint">
-              We typically respond within 24 hours.
-            </p>
-          </form>
-          <ContactFormEnhancer />
+          </noscript>
         </div>
       </div>
     </PageShell>

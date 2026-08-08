@@ -311,6 +311,55 @@
   }
 }
 
+/* ----- Contact chat motion -----
+ * Bubbles enter fast (220ms, strong ease-out) from a slight lift and 0.97
+ * scale — never from nothing — growing out of their tail corner. The
+ * composer cross-steps with a smaller, quicker rise; the two reason chips
+ * cascade 40ms apart. All of it is skipped under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .chat-bubble {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+    animation: chat-bubble-in 220ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    will-change: transform;
+  }
+  .chat-bubble--agent { transform-origin: bottom left; }
+  .chat-bubble--you { transform-origin: bottom right; }
+  @keyframes chat-bubble-in {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .chat-composer-in {
+    animation: chat-composer-in 180ms cubic-bezier(0.165, 0.84, 0.44, 1) both;
+  }
+  .chat-composer-in--late { animation-delay: 40ms; }
+  @keyframes chat-composer-in {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+  }
+
+  .chat-dot {
+    animation: chat-dot 900ms ease-in-out infinite;
+  }
+  .chat-dot:nth-child(2) { animation-delay: 150ms; }
+  .chat-dot:nth-child(3) { animation-delay: 300ms; }
+  @keyframes chat-dot {
+    0%, 55%, 100% {
+      transform: translateY(0);
+      opacity: 0.35;
+    }
+    25% {
+      transform: translateY(-3px);
+      opacity: 1;
+    }
+  }
+}
+
 /* ----- Prose for MDX posts ----- */
 .prose {
   --prose-body: var(--color-fg);

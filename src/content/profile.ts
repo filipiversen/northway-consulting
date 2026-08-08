@@ -5,7 +5,6 @@
  *
  * PLACEHOLDERS — replace with the real thing before launch:
  *   - `email`            (currently hello@northway.consulting)
- *   - the LinkedIn URL   (currently a guessed company handle)
  *   - `location`         (coverage line — adjust to where you actually work)
  */
 export const profile = {
@@ -30,10 +29,15 @@ export const profile = {
   location: "Remote-first · working with teams across North America & Europe",
 
   links: [
-    { label: "Email", href: "mailto:hello@northway.consulting" },
+    {
+      label: "Email",
+      text: "hello@northway.consulting",
+      href: "mailto:hello@northway.consulting",
+    },
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/company/northway-consulting",
+      text: "Filip Iversen",
+      href: "https://www.linkedin.com/in/filip-iversen-96319897/",
     },
   ],
 } as const;

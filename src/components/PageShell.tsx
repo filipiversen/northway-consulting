@@ -66,6 +66,12 @@ export default function PageShell(props: Props) {
           >
             Free audit
           </a>
+          <a
+            href="/start"
+            class="whitespace-nowrap bg-accent px-3 py-1.5 text-[0.75rem] font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_18px_rgba(48,209,88,0.45)] active:translate-y-px"
+          >
+            Get started
+          </a>
         </nav>
       </header>
 
