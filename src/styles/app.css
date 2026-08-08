@@ -102,6 +102,15 @@
 /* ----- Hover-only utility (expose `hover-hover:*` variant) ----- */
 @custom-variant hover-hover (@media (hover: hover) and (pointer: fine));
 
+/* ----- Smooth anchor scrolling ----- *
+ * In-page anchor links (e.g. pricing hero → #retainer) glide instead of
+ * jumping. Gated on reduced-motion like every other animation on the site. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 /* ----- CRT overlay ----- *
  * Scanlines + soft vignette over the whole viewport. Mounted once in
  * PageShell as <div class="crt" aria-hidden>. Non-interactive; sits under

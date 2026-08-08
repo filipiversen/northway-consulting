@@ -42,7 +42,7 @@ export default function Thanks() {
             href="/notes"
             class="border border-line px-5 py-2.5 text-sm font-medium transition-colors hover-hover:hover:border-accent hover-hover:hover:text-accent"
           >
-            Read the field notes
+            Read the articles
           </a>
         </div>
       </section>

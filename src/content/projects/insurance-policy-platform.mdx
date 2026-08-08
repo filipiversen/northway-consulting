@@ -12,15 +12,13 @@ switching cost is real, but the underlying product is rebuildable on a modern
 foundation in a fraction of the time it used to take.
 
 So we picked a category where that thesis is uncomfortable to argue with,
-**insurance policy administration**, and stood a product up against a
-well-known legacy system carrying a **seven-figure annual license**.
-
-A few weeks of focused build time. Honest feature parity for an agency, end to
-end.
+insurance policy administration, and stood a product up against a well-known
+legacy system carrying a seven-figure annual license. A few weeks of focused
+build time got us to honest feature parity for an agency, end to end.
 
 ## What we built
 
-Not a marketing demo. The shape an actual carrier or MGA would need:
+We built the shape an actual carrier or MGA would need, not a marketing demo:
 
 - Public marketing and **landing pages**.
 - **Dynamic quote flows** that branch by product and jurisdiction.
@@ -49,7 +47,7 @@ build started.
 - **A headless API at the core.** The web app is one consumer of the backend,
   not the backend itself.
 
-That meant the build time went almost entirely into **insurance behavior**:
+That meant the build time went almost entirely into insurance behavior:
 rating, eligibility, quote shaping, policy state, document templates, payment
 hooks, broker hierarchies, tenant configuration, instead of rebuilding the
 product surface from scratch.
@@ -65,14 +63,14 @@ behind role-based access.
 
 Almost none of that needed new "platform" code. It needed disciplined data
 modeling, a clean permission boundary, and components that could be
-**configured rather than rewritten** per tenant.
+configured rather than rewritten per tenant.
 
 ## Why it matters
 
 A few weeks to feature parity is the headline, not the lesson. The lesson is
 that the parts of an enterprise build that used to be hard (design system,
 headless API, modern tenancy, AI-assisted implementation) are now
-**infrastructure**. Invest once and they compound. Categories that looked
+infrastructure. Invest once and they compound. Categories that looked
 untouchable become addressable by small, focused teams.
 
 > This was the test of that idea. It held up, and it's the same playbook we

@@ -69,7 +69,7 @@ export const services: Service[] = [
     short: "AI Agents",
     tier: "core",
     focus:
-      "We build agents that do the boring, repetitive work your team is already doing, trained on your context rather than a generic chatbot.",
+      "We build agents that do the boring, repetitive work your team should not have to be doing, trained on your context rather than a generic chatbot.",
     summary:
       "An agent is software with a loop and a toolbox. We build ones that handle whole tasks end to end (research, triage, drafting, execution), grounded in your data and wired into the tools you already use, with guardrails and evals so they behave in production.",
     capabilities: [
@@ -103,7 +103,7 @@ export const services: Service[] = [
     short: "Workflow Automation",
     tier: "core",
     focus:
-      "We automate the work that's already on your team's plate, with measurable ROI in 30–60 days.",
+      "We automate the work that's eating up your team's valuable time, with measurable ROI in 30–60 days.",
     summary:
       "Data pipelines, approval flows, document processing, the report someone rebuilds from scratch every month. We automate the repetitive operational work that's quietly eating hours, and we ship it fast enough that the payback is obvious.",
     capabilities: [
@@ -137,7 +137,7 @@ export const services: Service[] = [
     short: "Systems Integration",
     tier: "core",
     focus:
-      "We connect the systems your team has been moving data between by hand.",
+      "We connect the systems your team has been moving data between by hand, freeing up time for more important work.",
     summary:
       "CRM, project management, finance, custom tools, data platforms, unified into one system that talks to itself. APIs, webhooks, and smart routing, built to scale and built to be understood by the next engineer who touches it.",
     capabilities: [

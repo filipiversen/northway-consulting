@@ -22,22 +22,22 @@ export const pricing = {
 
   howItWorks: [
     {
-      title: "Start",
+      title: "Get started",
       body: "Begin with the free audit, or jump straight in. You'll get a shared board and a first-week plan within a day. No six-week discovery.",
     },
     {
-      title: "Request",
-      body: "Queue automations, agents, and integrations as you need them. A written brief, a Loom, or a screenshot of the painful workflow all work.",
+      title: "Submit request",
+      body: "Tell us what you want off your plate, whenever it comes up. A short note, a quick recording, or a screenshot of the annoying task is all we need.",
     },
     {
-      title: "Ship",
+      title: "Receive delivery",
       body: "Most scoped requests come back in about two business days. Bigger builds ship in daily increments, revised until they actually run.",
     },
   ],
 
   benefits: [
     {
-      title: "One senior lead, no handoffs",
+      title: "One senior engineer, no handoffs",
       body: "You work with the person doing the work. No account managers, no juniors burning hours on your bill.",
     },
     {
@@ -45,8 +45,8 @@ export const pricing = {
       body: "One request or twenty. No hourly billing, no change orders, no invoices to chase.",
     },
     {
-      title: "Built to run in production",
-      body: "Agents, workflows, and integrations in your stack, with monitoring and human review where it matters.",
+      title: "Build things that actually will be used",
+      body: "Agents, workflows, and integrations in your existing tech, with monitoring and human review where it matters.",
     },
     {
       title: "Unlimited requests and revisions",
@@ -64,7 +64,7 @@ export const pricing = {
 
   included: [
     "Unlimited AI and automation requests",
-    "One active request at a time, about 48-hour turnaround",
+    "One active request at a time, most complete within 48 hours",
     "Agents, workflow automation, and systems integration",
     "Unlimited revisions until it works",
     "Production monitoring for what we build",
@@ -141,7 +141,7 @@ export const pricing = {
     },
     {
       q: "How do I submit requests?",
-      a: "Through your request board. Written briefs, docs, Loom walkthroughs, or screenshots of the painful workflow all work. We'll ask clarifying questions before we build.",
+      a: "Through your request board. Written briefs, docs, recorded walkthroughs, or screenshots of the painful workflow all work. We'll ask clarifying questions before we build.",
     },
     {
       q: "How does pausing work?",

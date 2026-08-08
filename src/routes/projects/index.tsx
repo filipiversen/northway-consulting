@@ -24,15 +24,15 @@ export default function ProjectsIndex() {
           data-hero-step="2"
           class="mb-4 font-display text-3xl font-semibold tracking-tight text-balance md:text-[2.5rem]"
         >
-          Receipts. The systems we've actually shipped.
+          Examples of systems we've shipped.
         </h1>
         <p
           data-hero-step="3"
           class="text-pretty text-base leading-relaxed text-fg-muted md:text-[1.0625rem]"
         >
           Software built for real businesses: modern foundations, shipped
-          by small teams, running in production. A few of these are drawn from
-          the founding team's work; swap in client engagements as they go live.
+          by small teams, running in production, drawn from
+          the founding team's work.
         </p>
       </header>
 

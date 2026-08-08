@@ -40,7 +40,7 @@ export default function Pricing() {
             href="#retainer"
             class="bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
           >
-            See the retainer →
+            See pricing →
           </a>
           <a
             href="/contact#audit"
@@ -53,7 +53,7 @@ export default function Pricing() {
 
       {/* How it works */}
       <section data-hero-step="5" class="mb-16 md:mb-20">
-        <SectionHeading>how it works</SectionHeading>
+        <SectionHeading>how does it work?</SectionHeading>
         <p class="mb-6 max-w-[52ch] text-pretty text-sm leading-relaxed text-fg-muted">
           No hiring scramble, no long proposals, no surprise invoices. Start
           requesting automation the same week.
@@ -79,7 +79,7 @@ export default function Pricing() {
 
       {/* Benefits */}
       <section data-hero-step="6" class="mb-16 md:mb-20">
-        <SectionHeading>why a retainer</SectionHeading>
+        <SectionHeading>why a retainer?</SectionHeading>
         <h2 class="mb-8 max-w-2xl font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">
           Senior help without a full-time hire.
         </h2>
@@ -111,7 +111,7 @@ export default function Pricing() {
             </a>
           }
         >
-          what you can request
+          what can we request?
         </SectionHeading>
         <p class="mb-6 max-w-[52ch] text-pretty text-sm leading-relaxed text-fg-muted">
           Same work as the service catalog, queued and shipped continuously
@@ -152,7 +152,7 @@ export default function Pricing() {
 
       {/* Price card */}
       <section id="retainer" class="mb-16 scroll-mt-8 md:mb-20">
-        <SectionHeading>the retainer</SectionHeading>
+        <SectionHeading>are you ready to begin?</SectionHeading>
         <div class="mb-8 max-w-2xl">
           <h2 class="font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">
             {pricing.comparison.headline}

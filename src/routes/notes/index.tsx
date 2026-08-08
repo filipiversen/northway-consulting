@@ -11,10 +11,10 @@ export default function NotesIndex() {
 
   return (
     <PageShell>
-      <Title>Field Notes · {profile.name}</Title>
+      <Title>Articles · {profile.name}</Title>
       <Meta
         name="description"
-        content="Field notes on shipping practical AI: agents, automation, cost, and the engineering judgment behind them."
+        content="Articles on shipping practical AI: agents, automation, cost, and the engineering judgment behind them."
       />
 
       <header class="mb-12">
@@ -22,7 +22,7 @@ export default function NotesIndex() {
           data-hero-step="1"
           class="mb-3 font-mono text-xs uppercase tracking-[0.18em] text-accent"
         >
-          Field Notes
+          Articles
         </p>
         <h1
           data-hero-step="2"
@@ -34,7 +34,7 @@ export default function NotesIndex() {
           data-hero-step="3"
           class="max-w-[34rem] text-pretty text-fg-muted"
         >
-          {posts.length} {posts.length === 1 ? "note" : "notes"} on shipping
+          {posts.length} {posts.length === 1 ? "article" : "articles"} on shipping
           practical AI: what we build, what we measure, and what we'd tell you
           over coffee.
         </p>
