@@ -1,0 +1,221 @@
+---
+title: "Building Eret: Construction Software Designed for People and AI"
+description: An operating system for small and mid-sized contractors, where people and AI assistants work through the same carefully controlled workflows.
+date: 2026-08-08
+role: Product · Design · Engineering
+status: beta
+---
+
+A contractor can spend the whole day building someone else's project, then
+spend the evening reconstructing their own business from texts, spreadsheets,
+receipts, and half-finished notes.
+
+That was the problem we wanted Eret to solve.
+
+Eret is an operating system for small and mid-sized contractors. It brings
+leads, estimates, proposals, jobs, purchasing, bills, invoices, payments, and
+customer relationships into one connected platform. More importantly, it gives
+people and AI assistants access to the same carefully controlled workflows.
+
+The goal is straightforward: reduce the administrative work around construction
+without taking judgment or financial control away from the people running the
+business.
+
+## Starting with the contractor's day
+
+We designed Eret around companies with between one and 50 employees. In
+businesses of that size, the owner is often the salesperson, estimator, project
+manager, and collections department.
+
+They may start work at 7 a.m., answer customer calls from the truck, and
+prepare estimates after dinner. Information arrives through conversations,
+photos, emails, supplier quotes, and handwritten notes. The same customer or
+project may then be entered into several different systems.
+
+That fragmentation has real consequences. Estimates take longer to send.
+Follow-ups get forgotten. Verbal changes never reach the invoice. Vendor costs
+appear after the job is finished. Owners find out whether a project made money
+when the accountant closes the books months later.
+
+We wanted one piece of information to enter the business once and remain useful
+throughout the job.
+
+A lead can become an estimate. An accepted estimate can become a proposal and
+then a job. Materials can move into purchasing, vendor bills can update project
+costs, and completed work can flow into invoices and payments. Each stage keeps
+its connection to the original customer, scope, and financial record.
+
+## Building one product instead of a collection of tools
+
+Before writing the production system, we mapped the full journey of a
+contracting business across 22 product areas. That included identity, CRM,
+estimating, proposals, projects, scheduling, purchasing, billing, payments,
+reporting, client access, and AI workflows.
+
+The map gave us a destination, but we built Eret in complete working slices.
+
+Identity and organization boundaries came first. CRM and sales intake followed.
+Then estimates, proposal approval, jobs, procurement, vendor bills, billing,
+payments, search, and assistant workflows.
+
+This approach gave us something useful to test at every stage. A feature was
+not finished when its database table or screen existed. It had to work through
+the API, appear correctly in the interface, respect permissions, emit the right
+events, and survive a realistic browser journey.
+
+The current beta connects the central commercial workflow from the first lead
+through getting paid. Contractors can build estimates from catalog items and
+assemblies, apply waste percentages, manage allowances, present customers with
+different options, collect approvals through a client portal, purchase
+materials, record vendor bills, issue invoices, and track payments.
+
+A global search crosses customers, contacts, jobs, estimates, invoices, files,
+and notes. Exact document numbers rank highly, permissions shape every result,
+and the search remains useful on a phone through a Cmd/Ctrl+K interface.
+
+These details matter because speed often comes from removing the small
+interruptions between larger tasks.
+
+## Giving AI a real job
+
+Many products add a chat window beside an existing application. Eret was
+designed so an assistant can perform the same registered operations as the web
+interface, within stricter boundaries.
+
+Each operation declares:
+
+- Who may use it
+- Which permission it requires
+- Whether an AI agent may execute it
+- Whether human confirmation is required
+- What should be recorded in the audit trail
+- Which events it produces
+- How retries and conflicting edits are handled
+
+We divide AI actions into three groups.
+
+Agent-safe actions can run directly. Confirmation-required actions produce a
+proposal for a person to review. Prohibited actions remain human-only.
+
+An agent's access is also capped by the person it represents. Connecting an
+assistant never gives it a shortcut around the organization's roles or
+financial controls.
+
+That structure makes useful workflows possible. The Eret assistant can inspect
+an estimate, identify missing or questionable lines, prepare a revision plan,
+and show the proposed result before anything is applied. A user can refine the
+plan, approve the changes, or discard them.
+
+External assistants can work through the same system. For example, an agent may
+propose assigning a lead to a different team member. Eret notifies the approver
+and displays the target, reason, risk, expiry, and exact proposed payload. If
+the person approves it, Eret executes the registered operation and records the
+receipt. The agent never receives permission to bypass the approval.
+
+This was one of our most important lessons: useful AI needs more than a good
+prompt. It needs permissions, version checks, durable approvals, idempotent
+operations, clear failure messages, and an audit trail people can understand.
+
+## Keeping money outside the model
+
+Construction software has very little room for imaginative arithmetic.
+
+Eret stores money as integer cents and performs pricing, markup, tax, waste,
+allowance, invoice, and payment calculations on the server. AI can help
+organize scope and draft descriptions, but it cannot quietly invent an amount
+or replace an authoritative calculation.
+
+We applied the same principle to evidence and confidence. When Eret extracts
+information from a vendor bill, the model does not get to grade its own answer.
+Confidence comes from the quality of the source evidence and arithmetic checks
+performed by the application.
+
+The broader rule is simple: models can suggest; the system must verify.
+
+That separation gives the assistant room to be helpful without making it the
+source of truth for the parts of the business that must reconcile.
+
+## Why we chose a boring architecture
+
+Eret runs as a TypeScript modular monolith with a Fastify API, a Next.js web
+application, background workers, and PostgreSQL as the system of record.
+
+We deliberately avoided microservices, Kafka, a separate workflow platform, and
+a dedicated search cluster. PostgreSQL handles tenant isolation, search,
+durable jobs, audit records, and transactional events. Domain boundaries live
+in the code and contracts without requiring a network call between every part
+of the product.
+
+That choice worked well.
+
+A small team can follow a customer action from the browser to the API, through
+the business rules, into the database, and back again without navigating a
+distributed system. Changes that touch several parts of the contractor's
+workflow can still ship as one tested slice.
+
+The architecture is not frozen forever. A service can be separated when scale,
+security, or ownership gives us a measurable reason. Until then, fewer moving
+parts mean more time spent on the product.
+
+## Building the app with AI
+
+AI was part of the development process as well as the product.
+
+To make that work, we wrote specifications that both people and coding agents
+could follow. Product stories have permanent identifiers. Acceptance criteria
+are expressed as concrete scenarios. Operations are defined in machine-readable
+contracts before their handlers are written. Tests refer back to the stories
+they prove.
+
+This gave development agents narrow, verifiable assignments instead of vague
+instructions such as "build estimating."
+
+The speed came from constraints. Clear ownership rules prevented one feature
+from quietly rewriting another feature's data. Generated API contracts exposed
+drift. Browser tests checked that the interface and backend still agreed. The
+implementation ledger recorded evidence alongside each completed slice.
+
+AI can produce a large amount of code quickly. The harder job is making sure
+every addition belongs, agrees with the rest of the system, and solves the
+intended problem. Precise specifications and strong feedback loops made the
+difference.
+
+## What testing taught us
+
+Automated tests caught a great deal, but the most useful discoveries often
+appeared when we exercised the complete product.
+
+Running the real worker exposed an initialization bug that isolated tests had
+missed. Driving queued work through PostgreSQL revealed that a failed handler
+could roll back its own attempt record. Testing an external assistant from
+consent through approval uncovered permission shapes accepted by one layer and
+rejected by another.
+
+These were not problems a screenshot or mocked component test could reveal.
+
+We now test realistic stories through the actual interface: create the lead,
+prepare the estimate, review the assistant's changes, send the proposal, open
+the customer link, approve it, and inspect the resulting job. Edge cases sit
+beside the success path because construction work rarely follows a perfect
+sequence.
+
+The lesson was clear: test the journey, not only the parts.
+
+## What comes next
+
+Eret is currently in pre-production beta preparation. The central workflow is
+implemented and tested, while production infrastructure, backup evidence,
+alerting, accessibility coverage, and final provider checks are still being
+completed.
+
+That distinction matters to us. Shipping an impressive demo is easy compared
+with earning the right to hold a contractor's customer records, project
+history, and financial data.
+
+We are building Eret so a contractor can respond to a lead faster, prepare a
+professional proposal without losing an evening, capture costs while they still
+matter, and know what is happening across the business without assembling the
+answer by hand.
+
+The software should take on the repetitive work while leaving people in control
+of the decisions that carry real consequences.

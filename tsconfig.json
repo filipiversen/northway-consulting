@@ -13,10 +13,10 @@
     "resolveJsonModule": true,
     "allowJs": true,
     "skipLibCheck": true,
-    "types": ["vinxi/types/client", "vite/client"],
+    "types": ["vite/client", "@solidjs/start/env"],
     "paths": {
       "~/*": ["./src/*"]
     }
   },
-  "include": ["src", "app.config.ts"]
+  "include": ["src", "vite.config.ts"]
 }

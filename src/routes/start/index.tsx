@@ -50,7 +50,7 @@ export default function Start() {
           data-hero-step="2"
           class="font-display text-4xl font-semibold leading-[1.05] tracking-tight text-balance md:text-6xl"
         >
-          Start the retainer.
+          Let's get to work.
         </h1>
         <p
           data-hero-step="3"
