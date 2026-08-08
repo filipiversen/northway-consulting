@@ -230,13 +230,35 @@ export async function resolveRetainerPrice(): Promise<RetainerPrice> {
     const product = await stripeFetch<
       StripeProduct & { default_price: StripePrice | string | null }
     >(`/v1/products/${productId}`, { params: { expand: ["default_price"] } });
-    if (!product.default_price || typeof product.default_price === "string") {
-      throw new StripeApiError(
-        `Product ${productId} has no default price. Set one in Stripe, or set STRIPE_PRICE_ID.`,
-        500,
-      );
+
+    const defaultPrice = product.default_price;
+    if (
+      defaultPrice &&
+      typeof defaultPrice === "object" &&
+      defaultPrice.recurring &&
+      defaultPrice.unit_amount !== null
+    ) {
+      resolved = toRetainerPrice({ ...defaultPrice, product });
+    } else {
+      // No usable default price — fall back to the product's own active
+      // recurring prices, as long as the choice is unambiguous.
+      const prices = await stripeFetch<StripeList<StripePrice>>("/v1/prices", {
+        params: { product: productId, active: true, type: "recurring", limit: 10 },
+      });
+      if (prices.data.length === 0) {
+        throw new StripeApiError(
+          `Product ${productId} has no active recurring price. Add one in Stripe, or set STRIPE_PRICE_ID.`,
+          500,
+        );
+      }
+      if (prices.data.length > 1) {
+        throw new StripeApiError(
+          `Product ${productId} has ${prices.data.length} active recurring prices. Set a default price in Stripe, or set STRIPE_PRICE_ID.`,
+          500,
+        );
+      }
+      resolved = toRetainerPrice({ ...prices.data[0], product });
     }
-    resolved = toRetainerPrice({ ...product.default_price, product });
   } else {
     const prices = await stripeFetch<StripeList<StripePrice>>("/v1/prices", {
       params: { active: true, type: "recurring", limit: 10, expand: ["data.product"] },
