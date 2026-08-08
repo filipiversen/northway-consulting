@@ -106,7 +106,7 @@ export async function POST(event: APIEvent) {
         from,
         to,
         reply_to: email,
-        subject: `New inquiry () from `,
+        subject: `New inquiry (${topic}) from ${name}`,
         text: `Name: ${name}\nEmail: ${email}\nTopic: ${topic}\n\n${message}`,
         html:
           `<h2>New inquiry via northway.consulting</h2>` +
