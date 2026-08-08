@@ -61,7 +61,7 @@ export default function PageShell(props: Props) {
             </a>
           ))}
           <a
-            href="/ai-audit"
+            href="/contact#audit"
             class="whitespace-nowrap border border-line px-3 py-1.5 text-[0.75rem] font-semibold text-fg transition-colors hover-hover:hover:border-accent hover-hover:hover:text-accent"
           >
             Free audit

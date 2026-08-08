@@ -17,13 +17,19 @@ const ContactFormEnhancer = clientOnly(
  */
 const FORM_ACTION = "/api/contact";
 
+const AUDIT_GETS = [
+  "A manual-work inventory, grouped by function",
+  "Real-dollar cost per workflow (hours × loaded rate)",
+  "A ranked automation roadmap you can keep",
+];
+
 export default function Contact() {
   return (
     <PageShell wide>
       <Title>Contact · {profile.name}</Title>
       <Meta
         name="description"
-        content="Get in touch with Northway about AI automation, custom software, or a free audit. No pitch, no pressure."
+        content="Book a free discovery call or AI audit with Northway. Map the manual work, get a ranked roadmap, or just send a note. No pitch, no pressure."
       />
 
       <header class="mb-16 max-w-2xl">
@@ -52,22 +58,35 @@ export default function Contact() {
       <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.2fr]">
         {/* Left: direct channels */}
         <div data-hero-step="4" class="space-y-8">
-          <div>
+          <div id="audit" class="scroll-mt-8">
             <p class="mb-2 flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.12em] text-fg-faint">
               <span aria-hidden="true" class="h-3 w-px bg-accent" />
               Book a call
             </p>
             <h2 class="font-display text-xl font-semibold tracking-tight">
-              A free 30-minute discovery call.
+              A free discovery call and AI audit.
             </h2>
             <p class="mt-2 text-pretty text-sm leading-relaxed text-fg-muted">
-              Pick a time that works. We'll listen to what's hurting, tell you
-              honestly whether AI automation can help, and point you at the next
-              step, whether that's with us or not.
+              About an hour. We listen to what's hurting, map the copy-paste
+              work your team is already doing, and tell you honestly whether
+              automation is worth it. If it is, you leave with a short written
+              roadmap. Yours to keep, whether you build with us or not.
             </p>
+            <ul class="mt-4 space-y-2">
+              <For each={AUDIT_GETS}>
+                {(item) => (
+                  <li class="flex items-start gap-2.5 text-sm text-fg-muted">
+                    <span aria-hidden="true" class="mt-0.5 text-accent">
+                      ✓
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                )}
+              </For>
+            </ul>
             <a
-              href={`mailto:${profile.email}?subject=Discovery%20call`}
-              class="mt-4 inline-block bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
+              href={`mailto:${profile.email}?subject=Discovery%20call%20/%20AI%20audit`}
+              class="mt-5 inline-block bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
             >
               Request a call →
             </a>
@@ -178,7 +197,7 @@ export default function Contact() {
                 class="w-full rounded-lg border border-line bg-bg px-3 py-2.5 text-sm outline-none transition-colors focus:border-fg"
               >
                 <option value="general">General inquiry</option>
-                <option value="audit">Free AI audit</option>
+                <option value="audit">Discovery call / AI audit</option>
                 <option value="retainer">Monthly retainer</option>
                 <For each={services}>
                   {(s) => <option value={s.slug}>{s.title}</option>}

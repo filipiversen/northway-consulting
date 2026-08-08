@@ -12,6 +12,9 @@ export default defineConfig({
   },
   server: {
     preset: "vercel",
+    routeRules: {
+      "/ai-audit": { redirect: { to: "/contact", statusCode: 301 } },
+    },
     prerender: {
       crawlLinks: true,
       routes: [
@@ -22,7 +25,6 @@ export default defineConfig({
         "/about",
         "/pricing",
         "/contact",
-        "/ai-audit",
         "/thanks",
       ],
     },

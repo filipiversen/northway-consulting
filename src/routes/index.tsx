@@ -168,7 +168,7 @@ export default function Home() {
 
         <div data-hero-step="4" class="mt-9 flex flex-wrap gap-4">
           <a
-            href="/ai-audit"
+            href="/contact#audit"
             class="bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
           >
             Get a free audit
@@ -352,7 +352,7 @@ export default function Home() {
               See pricing →
             </a>
             <a
-              href="/ai-audit"
+              href="/contact#audit"
               class="border border-line px-5 py-2.5 text-sm font-medium text-fg-muted transition-colors hover-hover:hover:border-accent hover-hover:hover:text-accent"
             >
               Or start with a free audit
@@ -372,7 +372,7 @@ export default function Home() {
         </p>
         <div class="flex flex-wrap gap-4">
           <a
-            href="/ai-audit"
+            href="/contact#audit"
             class="bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
           >
             Get a free audit

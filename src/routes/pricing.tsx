@@ -43,7 +43,7 @@ export default function Pricing() {
             See the retainer →
           </a>
           <a
-            href="/ai-audit"
+            href="/contact#audit"
             class="border border-line px-5 py-2.5 text-sm font-medium transition-colors hover-hover:hover:border-accent hover-hover:hover:text-accent"
           >
             Start with a free audit
@@ -205,7 +205,7 @@ export default function Pricing() {
             <p class="w-full text-xs text-fg-faint sm:ml-auto sm:w-auto">
               Not sure yet?{" "}
               <a
-                href="/ai-audit"
+                href="/contact#audit"
                 class="underline decoration-line underline-offset-[0.2em] transition-colors hover-hover:hover:decoration-fg"
               >
                 Book a free audit
@@ -280,7 +280,7 @@ export default function Pricing() {
         </p>
         <div class="flex flex-wrap gap-4">
           <a
-            href="/ai-audit"
+            href="/contact#audit"
             class="bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
           >
             Get a free audit

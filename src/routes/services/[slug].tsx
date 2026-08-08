@@ -150,7 +150,7 @@ export default function ServicePage() {
               </div>
               <div class="mt-5 flex shrink-0 gap-3 md:mt-0">
                 <a
-                  href="/ai-audit"
+                  href="/contact#audit"
                   class="bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
                 >
                   Book a free audit →

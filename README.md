@@ -26,10 +26,11 @@ npm run typecheck
 npm run build        # emits .vercel/output/ (prerendered)
 ```
 
-`/`, `/services`, `/projects`, `/notes`, `/about`, `/pricing`, `/contact`, and
-`/ai-audit` are seeded for prerender; `crawlLinks` discovers every
+`/`, `/services`, `/projects`, `/notes`, `/about`, `/pricing`, and `/contact`
+are seeded for prerender; `crawlLinks` discovers every
 `/services/[slug]`, `/projects/[slug]`, and `/notes/[slug]` from the index
-pages.
+pages. The free AI audit lives on `/contact#audit` (old `/ai-audit` links
+redirect there).
 
 ## Layout
 
@@ -43,7 +44,7 @@ src/
     projects/[slug].tsx      case study (MDX)
     notes/index.tsx          field notes index
     notes/[slug].tsx         field note (MDX)
-    about.tsx  pricing.tsx  contact.tsx  ai-audit.tsx
+    about.tsx  pricing.tsx  contact.tsx
   content/
     profile.ts               brand + contact identity   <- edit me
     services.ts              the service catalog (10)

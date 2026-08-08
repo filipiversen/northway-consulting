@@ -237,7 +237,7 @@ export default function About() {
             Get in touch →
           </a>
           <a
-            href="/ai-audit"
+            href="/contact#audit"
             class="border border-night-line px-5 py-2.5 text-sm font-medium text-night-fg transition-colors hover-hover:hover:border-star"
           >
             Start with a free audit

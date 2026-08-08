@@ -46,7 +46,7 @@ export default function NotFound() {
             <a href="/projects" class="text-fg-muted transition-colors hover-hover:hover:text-accent">→ Our work</a>
           </p>
           <p>
-            <a href="/ai-audit" class="text-accent transition-colors hover-hover:hover:underline hover-hover:hover:underline-offset-[0.3em]">→ Get a free audit</a>
+            <a href="/contact#audit" class="text-accent transition-colors hover-hover:hover:underline hover-hover:hover:underline-offset-[0.3em]">→ Get a free audit</a>
           </p>
         </div>
       </section>
