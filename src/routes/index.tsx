@@ -134,16 +134,14 @@ export default function Home() {
           data-hero-step="1"
           class="max-w-3xl text-[clamp(1.9rem,5vw,3.4rem)] font-semibold leading-[1.15] tracking-[-0.01em] text-balance"
         >
-          Your ops team is typing things
-          <span class="text-fg-muted"> a machine should type.</span>
+          Your team is doing things
+          <span class="text-fg-muted"> a machine should do for you.</span>
         </h1>
         <p
           data-hero-step="2"
           class="mt-6 max-w-[52ch] text-[0.95rem] leading-[1.7] text-fg-muted text-pretty"
         >
-          Northway builds and runs the agents and automations that take the
-          repetitive work off your team's hands. In production, not in a
-          pilot.
+         The copy-paste work, the re-typing, the chasing — we build software that handles all of it, so your team doesn't have to.
         </p>
 
         <div
@@ -274,7 +272,7 @@ export default function Home() {
         </figure>
       </section>
 
-      {/* ---------- Shipped ---------- */}
+      {/* ---------- Our work ---------- */}
       <section class="mb-16 md:mb-20">
         <SectionHeading
           aside={
@@ -283,12 +281,12 @@ export default function Home() {
             </a>
           }
         >
-          shipped
+          our work
         </SectionHeading>
         <ProjectList projects={projects} />
       </section>
 
-      {/* ---------- Field notes ---------- */}
+      {/* ---------- Articles ---------- */}
       <section class="mb-16 md:mb-20">
         <SectionHeading
           aside={
@@ -297,7 +295,7 @@ export default function Home() {
             </a>
           }
         >
-          field notes
+          articles
         </SectionHeading>
         <WritingList posts={recent} stagger />
       </section>
@@ -333,7 +331,7 @@ export default function Home() {
             </p>
           </div>
           <ul class="grid grid-cols-1 gap-0 sm:grid-cols-2">
-            <For each={pricing.included.slice(0, 4)}>
+            <For each={pricing.included}>
               {(item) => (
                 <li class="flex items-start gap-3 border-b border-line px-5 py-3 text-[0.82rem] text-fg-muted last:border-b-0 sm:odd:border-r sm:[&:nth-last-child(-n+2)]:border-b-0 md:px-6">
                   <span aria-hidden="true" class="mt-0.5 text-accent">

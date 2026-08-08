@@ -138,7 +138,7 @@ Palette, 4-family type system, logo usage, press guidelines.
 /services/<slug> detail template
 /projects        case studies index
 /projects/<slug> case study (MDX)
-/notes           field notes index   (renamed from /writing)
+/notes           articles index      (renamed from /writing)
 /notes/<slug>    note (MDX)
 /about           firm story / approach / values (firm voice)
 /pricing         monthly AI & automation retainer ($5,000)
@@ -153,7 +153,7 @@ managed-ai-ops, product-design.
 **Content seeding (start-fresh, editable starting points):**
 - Case studies: 2–3 firm-voiced cases drawn from real work (insurance platform
   rebuild, lending design system, AI-first feedback product).
-- Field notes: ~3 firm-voiced posts adapted from the reference's strongest
+- Articles: ~3 firm-voiced posts adapted from the reference's strongest
   topics (ship-not-pilot, ghost employee, harness > model).
 
 **Placeholders for the owner to fill:** contact email, LinkedIn/social URLs,

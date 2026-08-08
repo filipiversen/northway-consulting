@@ -14,9 +14,8 @@ running AI in production have never opened it.
 [A post that made the rounds](https://x.com/cyrilXBT/status/2072706408710058492)
 when Fable 5 launched put it plainly: before you run the same prompts
 you used on the last model, read the guide. We'd push it one step
-further. The existence of per-model migration notes tells you something
-about what a prompt is. It's code, and the compiler changes underneath
-it a few times a year.
+further: migration notes exist because a prompt is code, and the
+compiler changes underneath it a few times a year.
 
 ## Old prompts carry old scar tissue
 
@@ -51,5 +50,5 @@ migration checklist is short:
 3. Run the eval suite and compare, then ship the number, with the new
    model and the pruned prompt together.
 
-> A prompt without a version number is a prompt nobody maintains. The
-> manual is free. The drift isn't.
+> A prompt without a version number is a prompt nobody maintains. Read
+> the vendor's notes before you bump the model.

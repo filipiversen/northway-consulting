@@ -14,7 +14,7 @@ throughout, and signal green reserved for the places automation goes live.
 - [SolidStart](https://docs.solidjs.com/solid-start) (`experimental.islands: true`)
 - TypeScript, Vite (via Vinxi)
 - Tailwind CSS v4 (CSS-first config in `src/styles/app.css`)
-- MDX for case studies and field notes (`@mdx-js/rollup` + `solid-mdx`)
+- MDX for case studies and articles (`@mdx-js/rollup` + `solid-mdx`)
 - Self-hosted IBM Plex Mono via Fontsource (the site's single typeface)
 
 ## Develop
@@ -42,8 +42,8 @@ src/
     services/[slug].tsx      service detail
     projects/index.tsx       work / case-study index
     projects/[slug].tsx      case study (MDX)
-    notes/index.tsx          field notes index
-    notes/[slug].tsx         field note (MDX)
+    notes/index.tsx          articles index
+    notes/[slug].tsx         article (MDX)
     about.tsx  pricing.tsx  contact.tsx
     start/index.tsx          retainer checkout (Stripe Payment Element)
     start/complete.tsx       post-payment verification + billing portal
@@ -55,7 +55,7 @@ src/
     services.ts              the service catalog (10)
     pricing.ts               monthly retainer offer
     projects/*.mdx           case studies
-    notes/*.mdx              field notes
+    notes/*.mdx              articles
   components/                PageShell, SectionHeading, lists + islands/
   styles/app.css             Tailwind v4 + Northway tokens + view transitions
 docs/content-reference.md    the crawl + adaptation plan
