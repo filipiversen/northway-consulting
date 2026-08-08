@@ -55,8 +55,8 @@ export default function Pricing() {
       <section data-hero-step="5" class="mb-16 md:mb-20">
         <SectionHeading>how it works</SectionHeading>
         <p class="mb-6 max-w-[52ch] text-pretty text-sm leading-relaxed text-fg-muted">
-          No hiring, no scoping theater, no surprise invoices. Start requesting
-          automation the same week.
+          No hiring scramble, no long proposals, no surprise invoices. Start
+          requesting automation the same week.
         </p>
         <ol class="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-3">
           <For each={pricing.howItWorks}>
