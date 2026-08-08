@@ -319,7 +319,7 @@ export default function Home() {
               {pricing.planName}
             </p>
             <h2 class="mt-3 max-w-xl text-[clamp(1.15rem,2.5vw,1.55rem)] font-semibold leading-snug text-balance">
-              One flat rate. Automate and add AI — without hourly billing.
+              One flat rate to automate the work your team keeps redoing.
             </h2>
             <p class="mt-3 flex items-baseline gap-1">
               <span class="text-3xl font-semibold tracking-tight tabular-nums md:text-4xl">
@@ -329,7 +329,7 @@ export default function Home() {
             </p>
             <p class="mt-2 max-w-[52ch] text-[0.85rem] leading-relaxed text-fg-muted">
               Unlimited automation requests, one at a time. Agents, workflows,
-              integrations — built to ship. {pricing.tagline}
+              integrations. {pricing.tagline}
             </p>
           </div>
           <ul class="grid grid-cols-1 gap-0 sm:grid-cols-2">

@@ -146,7 +146,7 @@ export default function ServicesIndex() {
         </SectionHeading>
         <div class="rounded-lg border border-line bg-bg-soft p-6 md:p-8">
           <h2 class="font-display text-xl font-semibold tracking-tight text-balance md:text-2xl">
-            One flat monthly rate for ongoing AI & automation.
+            Ongoing AI and automation at one flat monthly rate.
           </h2>
           <p class="mt-3 max-w-[52ch] text-pretty text-sm leading-relaxed text-fg-muted">
             Prefer a continuous queue over one-off projects? The{" "}
@@ -156,8 +156,8 @@ export default function ServicesIndex() {
             >
               monthly retainer
             </a>{" "}
-            covers agents, workflows, and integrations at a fixed price —
-            unlimited requests, pause anytime.
+            covers agents, workflows, and integrations at a fixed price.
+            Unlimited requests. Pause anytime.
           </p>
           <a
             href="/pricing"

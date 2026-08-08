@@ -11,7 +11,7 @@ export default function Pricing() {
       <Title>Pricing · {profile.name}</Title>
       <Meta
         name="description"
-        content={`AI automation retainer at ${formatPrice()}/month. Unlimited requests, one flat rate, pause anytime. Agents, workflows, and integrations — built to ship.`}
+        content={`AI automation retainer at ${formatPrice()}/month. Unlimited requests, one flat rate, pause anytime. Agents, workflows, and integrations built to ship.`}
       />
 
       {/* Hero */}
@@ -31,7 +31,7 @@ export default function Pricing() {
         </h1>
         <p
           data-hero-step="3"
-          class="mt-6 max-w-[42rem] text-pretty text-base leading-relaxed text-fg-muted md:text-lg"
+          class="mt-6 max-w-[40rem] text-pretty text-base leading-relaxed text-fg-muted md:text-lg"
         >
           {pricing.hero.lead}
         </p>
@@ -55,8 +55,8 @@ export default function Pricing() {
       <section data-hero-step="5" class="mb-16 md:mb-20">
         <SectionHeading>how it works</SectionHeading>
         <p class="mb-6 max-w-[52ch] text-pretty text-sm leading-relaxed text-fg-muted">
-          Skip the hiring, the scoping, and the surprise invoices. Subscribe
-          once and start requesting automation the same week.
+          No hiring, no scoping theater, no surprise invoices. Start requesting
+          automation the same week.
         </p>
         <ol class="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-3">
           <For each={pricing.howItWorks}>
@@ -81,7 +81,7 @@ export default function Pricing() {
       <section data-hero-step="6" class="mb-16 md:mb-20">
         <SectionHeading>why a retainer</SectionHeading>
         <h2 class="mb-8 max-w-2xl font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">
-          Senior AI capacity without the full-time overhead.
+          Senior help without a full-time hire.
         </h2>
         <ul class="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
           <For each={pricing.benefits}>
@@ -114,8 +114,8 @@ export default function Pricing() {
           what you can request
         </SectionHeading>
         <p class="mb-6 max-w-[52ch] text-pretty text-sm leading-relaxed text-fg-muted">
-          The retainer covers the same work as our service catalog — queued and
-          shipped continuously instead of scoped as one-off projects.
+          Same work as the service catalog, queued and shipped continuously
+          instead of scoped as one-off projects.
         </p>
         <ul class="border border-line">
           <For each={pricing.scope}>
@@ -219,10 +219,10 @@ export default function Pricing() {
       <section class="mb-16 md:mb-20">
         <SectionHeading>faq</SectionHeading>
         <h2 class="mb-2 max-w-xl font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">
-          Everything you need to know before getting started.
+          Common questions.
         </h2>
         <p class="mb-8 max-w-[48ch] text-pretty text-sm leading-relaxed text-fg-muted">
-          Still have a question?{" "}
+          Still stuck?{" "}
           <a
             href="/contact"
             class="underline decoration-line underline-offset-[0.2em] transition-colors hover-hover:hover:decoration-fg"
@@ -271,12 +271,12 @@ export default function Pricing() {
       {/* CTA */}
       <section class="rounded-lg border border-dashed border-fg-muted p-8 md:p-10">
         <h2 class="text-[clamp(1.2rem,3vw,1.8rem)] font-semibold">
-          Find out what the manual work costs first.
+          Not sure yet? Start with the audit.
         </h2>
         <p class="mt-4 mb-7 max-w-[56ch] text-[0.9rem] leading-[1.7] text-fg-muted">
           One hour. We inventory the copy-paste work, price it at your loaded
-          rate, and hand you a ranked automation roadmap. Free, no obligation —
-          then decide if the retainer makes sense.
+          rate, and hand you a ranked roadmap. Free. Then decide if the
+          retainer makes sense.
         </p>
         <div class="flex flex-wrap gap-4">
           <a

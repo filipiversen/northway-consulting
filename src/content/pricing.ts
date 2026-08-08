@@ -1,81 +1,81 @@
 /**
  * Retainer pricing — single source of truth for `/pricing`, the home teaser,
- * and any cross-links. Modeled on the northway.agency subscription shape,
- * reframed for AI automation consulting.
+ * and any cross-links. Same flat-rate idea as northway.agency, written in
+ * Northway Consulting's voice: concrete, dry, no sales theater.
  */
 
 export const pricing = {
-  /** Display price. Round number on purpose — consulting, not a checkout trick. */
+  /** Round number on purpose. Consulting, not a checkout trick. */
   amount: 5000,
   amountLabel: "$5,000",
   cadence: "month",
   cadenceLabel: "/month",
 
-  planName: "Monthly Retainer",
-  tagline: "Pause or cancel anytime. No minimum commitment.",
+  planName: "Monthly retainer",
+  tagline: "Pause or cancel anytime. No minimum.",
 
   hero: {
-    eyebrow: "Pricing · Monthly retainer",
+    eyebrow: "Pricing",
     title: "Your AI & automation team, on retainer.",
-    lead: "One flat monthly rate. We automate the repetitive work, wire AI into your operations, and keep shipping — without hourly billing, proposals, or surprise invoices.",
+    lead: "One flat monthly rate. We automate the repetitive work and add AI where it pays off. No hourly billing.",
   },
 
   howItWorks: [
     {
       title: "Start",
-      body: "Book a free audit or jump straight in. Within a day of kicking off you get a shared request board and a clear first-week plan — no contracts theater, no six-week discovery.",
+      body: "Begin with the free audit, or jump straight in. You'll get a shared board and a first-week plan within a day. No six-week discovery.",
     },
     {
       title: "Request",
-      body: "Queue automations, agents, integrations, and AI features as you need them. A written brief, a Loom, or a screenshot of the painful workflow all work.",
+      body: "Queue automations, agents, and integrations as you need them. A written brief, a Loom, or a screenshot of the painful workflow all work.",
     },
     {
       title: "Ship",
-      body: "Most scoped requests come back within two business days. Larger builds ship in daily increments so you always see progress — and everything is revised until it actually runs.",
+      body: "Most scoped requests come back in about two business days. Bigger builds ship in daily increments, revised until they actually run.",
     },
   ],
 
   benefits: [
     {
-      title: "One senior lead, zero handoffs",
-      body: "You work with the person doing the work. No account managers, no junior bench burning hours on your bill.",
+      title: "One senior lead, no handoffs",
+      body: "You work with the person doing the work. No account managers, no juniors burning hours on your bill.",
     },
     {
-      title: "One flat rate, no surprises",
-      body: "The same fixed price every month, whether you queue one request or twenty. No hourly billing, no change orders.",
+      title: "Same price every month",
+      body: "One request or twenty. No hourly billing, no change orders, no invoices to chase.",
     },
     {
-      title: "Built for production",
-      body: "Agents, workflows, and integrations that run in your stack — with monitoring, evals, and human-in-the-loop where it matters.",
+      title: "Built to run in production",
+      body: "Agents, workflows, and integrations in your stack, with monitoring and human review where it matters.",
     },
     {
-      title: "Unlimited requests & revisions",
-      body: "Add as much as you like to the queue. Every deliverable gets revised until you're satisfied, at no extra cost.",
+      title: "Unlimited requests and revisions",
+      body: "Add as much as you like to the queue. We revise until you're satisfied, at no extra cost.",
     },
     {
       title: "Pause when things slow down",
-      body: "Unused days roll over when you pause, so you only pay for months you actually use. Cancel anytime.",
+      body: "Unused days roll over when you pause. You only pay for months you use. Cancel anytime.",
     },
     {
-      title: "You own everything",
-      body: "Code, prompts, workflows, and docs are yours. We build from scratch for your stack — no black-box SaaS lock-in.",
+      title: "You own the work",
+      body: "Code, prompts, workflows, and docs are yours. Built for your stack, not locked into ours.",
     },
   ],
 
   included: [
-    "Unlimited AI & automation requests",
-    "One active request at a time · avg. 48-hour turnaround",
+    "Unlimited AI and automation requests",
+    "One active request at a time, about 48-hour turnaround",
     "Agents, workflow automation, and systems integration",
-    "Unlimited revisions until it ships clean",
+    "Unlimited revisions until it works",
     "Production monitoring for what we build",
-    "Pause anytime — unused days roll over",
+    "Pause anytime; unused days roll over",
   ],
 
-  /** Work that fits the retainer — maps to existing service catalog. */
+  /** Work that fits the retainer — maps to the existing service catalog. */
   scope: [
     {
       title: "Workflow automation",
-      body: "The copy-paste, re-key, and chase-the-status work already on the team's plate.",
+      body: "The copy-paste, re-key, and status-chase work already on the team's plate.",
       href: "/services/workflow-automation",
     },
     {
@@ -89,7 +89,7 @@ export const pricing = {
       href: "/services/systems-integration",
     },
     {
-      title: "RAG & internal knowledge",
+      title: "RAG and internal knowledge",
       body: "Retrieval over your docs that answers honestly and cites sources.",
       href: "/services/rag-systems",
     },
@@ -99,65 +99,65 @@ export const pricing = {
       href: "/services/managed-ai-ops",
     },
     {
-      title: "Custom software & design",
+      title: "Custom software and design",
       body: "The thin product surface or internal tool an automation needs to be usable.",
       href: "/services/custom-software",
     },
   ],
 
   comparison: {
-    headline: "One flat rate. No contracts, no hourly billing.",
-    body: "A senior AI engineer costs $180,000+ a year to hire — if you can find one, onboard them, and keep them. Get the same output for a fraction of the cost, and only for the months you need it.",
+    headline: "One flat rate. No hourly billing.",
+    body: "A senior AI engineer runs $180k+ a year to hire, if you can find one and keep them busy. Same kind of output here, for the months you actually need it.",
   },
 
   faqs: [
     {
-      q: "Why wouldn't I just hire a full-time engineer?",
-      a: "You can — and for some teams that's right. A full-time hire means recruiting, onboarding, benefits, and a fixed cost whether the pipeline is full or quiet. The retainer gives you senior AI and automation capacity at a fraction of that cost, pauseable when priorities shift.",
+      q: "Why wouldn't I just hire someone full-time?",
+      a: "For some teams that's the right call. A hire means recruiting, onboarding, benefits, and a fixed cost whether the pipeline is full or quiet. The retainer is senior AI and automation help you can pause when priorities shift.",
     },
     {
       q: "What kind of work can I request?",
-      a: "Anything in our service catalog that fits a request queue: workflow automation, AI agents, systems integration, RAG, managed ops, and the custom software or interface work that makes those systems usable. If a request is a multi-month platform rebuild, we'll say so and propose a better shape.",
+      a: "Anything from the service catalog that fits a request queue: workflow automation, agents, integrations, RAG, managed ops, and the small software or interface work those systems need. If something is a multi-month platform rebuild, we'll say so and suggest a better shape.",
     },
     {
-      q: "How fast will I receive my work?",
-      a: "Most scoped requests come back within two business days. Larger projects ship in daily increments so you always see progress. You'll never wonder what's happening.",
+      q: "How fast do things come back?",
+      a: "Most scoped requests in about two business days. Larger projects ship in daily increments, so you always see progress.",
     },
     {
-      q: "Is there a limit to how many requests I can make?",
-      a: "No. Queue as many as you like. We work one active request at a time so quality stays high and priorities stay clear — you control the order.",
+      q: "Is there a limit on requests?",
+      a: "No. Queue as many as you like. We work one active request at a time so quality stays high and priorities stay clear. You control the order.",
     },
     {
       q: "What if I don't like what ships?",
-      a: "Unlimited revisions until you're happy. If something isn't working in production, we stay on it. The point of the retainer is outcomes, not ticket volume.",
+      a: "Unlimited revisions until you're happy. If something fails in production, we stay on it. The point is outcomes, not ticket count.",
     },
     {
       q: "Who does the work?",
-      a: "Filip and the Northway network — senior engineers and AI specialists, no junior handoffs. You get one accountable lead for the engagement.",
+      a: "Filip and the Northway network: senior engineers and AI specialists, no junior handoffs. One accountable lead for the engagement.",
     },
     {
       q: "How does onboarding work?",
-      a: "Start with the free audit if you want a ranked roadmap first, or jump straight into the retainer. Either way: shared board, access to the systems that matter, and a first request within days — not weeks.",
+      a: "Start with the free audit if you want a ranked roadmap first, or go straight into the retainer. Either way: shared board, access to the systems that matter, and a first request within days.",
     },
     {
-      q: "How will I submit requests?",
-      a: "Through your request board. Written briefs, Google docs, Loom walkthroughs, or screenshots of the painful workflow all work. We'll ask clarifying questions before we build.",
+      q: "How do I submit requests?",
+      a: "Through your request board. Written briefs, docs, Loom walkthroughs, or screenshots of the painful workflow all work. We'll ask clarifying questions before we build.",
     },
     {
-      q: "How does the pause feature work?",
-      a: "Pause anytime from your board. Unused days roll over, so a two-week pause credits two weeks when you resume. Cancel anytime with no penalty.",
+      q: "How does pausing work?",
+      a: "Pause anytime from your board. Unused days roll over, so a two-week pause credits two weeks when you resume. Cancel anytime, no penalty.",
     },
     {
-      q: "What if I only need a month, or a single project?",
-      a: "That's fine. There's no minimum commitment. For a clearly bounded one-off (a single agent, a defined integration), we can also quote a fixed project — but most teams find the retainer simpler once they see the backlog.",
+      q: "What if I only need a month, or one project?",
+      a: "That's fine. No minimum commitment. For a clearly bounded one-off (a single agent, a defined integration), we can quote a fixed project. Most teams stick with the retainer once they see the backlog.",
     },
     {
       q: "Who owns the work?",
-      a: "You do. Source code, prompts, workflows, infrastructure config, and documentation are yours. We don't lock you into a proprietary platform.",
+      a: "You do. Source code, prompts, workflows, infrastructure config, and docs are yours. We don't lock you into a proprietary platform.",
     },
     {
-      q: "Are there any requests you don't support?",
-      a: "We don't do pure brand identity, print design, or work outside AI/automation/software. We also won't ship systems we can't stand behind in production — if a request is a bad idea, we'll tell you why.",
+      q: "What won't you take on?",
+      a: "Pure brand identity, print design, or work outside AI, automation, and software. We also won't ship systems we can't stand behind in production. If a request is a bad idea, we'll say why.",
     },
   ],
 } as const;
