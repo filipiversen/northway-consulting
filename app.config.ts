@@ -20,6 +20,7 @@ export default defineConfig({
         "/projects",
         "/notes",
         "/about",
+        "/pricing",
         "/contact",
         "/ai-audit",
         "/thanks",

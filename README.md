@@ -26,9 +26,10 @@ npm run typecheck
 npm run build        # emits .vercel/output/ (prerendered)
 ```
 
-`/`, `/services`, `/projects`, `/notes`, `/about`, `/contact`, and `/ai-audit`
-are seeded for prerender; `crawlLinks` discovers every `/services/[slug]`,
-`/projects/[slug]`, and `/notes/[slug]` from the index pages (23 routes total).
+`/`, `/services`, `/projects`, `/notes`, `/about`, `/pricing`, `/contact`, and
+`/ai-audit` are seeded for prerender; `crawlLinks` discovers every
+`/services/[slug]`, `/projects/[slug]`, and `/notes/[slug]` from the index
+pages.
 
 ## Layout
 
@@ -42,10 +43,11 @@ src/
     projects/[slug].tsx      case study (MDX)
     notes/index.tsx          field notes index
     notes/[slug].tsx         field note (MDX)
-    about.tsx  contact.tsx  ai-audit.tsx
+    about.tsx  pricing.tsx  contact.tsx  ai-audit.tsx
   content/
     profile.ts               brand + contact identity   <- edit me
     services.ts              the service catalog (10)
+    pricing.ts               monthly retainer offer
     projects/*.mdx           case studies
     notes/*.mdx              field notes
   components/                PageShell, SectionHeading, lists + islands/

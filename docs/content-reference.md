@@ -141,10 +141,11 @@ Palette, 4-family type system, logo usage, press guidelines.
 /notes           field notes index   (renamed from /writing)
 /notes/<slug>    note (MDX)
 /about           firm story / approach / values (firm voice)
+/pricing         monthly AI & automation retainer ($5,000)
 /contact         discovery call + form
 /ai-audit        ghost-employee audit lead magnet
 ```
-Nav: **Services · Work · Notes · About** + `Free AI Audit →`.
+Nav: **Services · Pricing · Work · Notes · About** + `Free AI Audit →`.
 
 **Services adopted (10):** operations-audit, ai-agents, workflow-automation,
 systems-integration, ai-strategy, fractional-cto, custom-software, rag-systems,

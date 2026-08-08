@@ -134,8 +134,42 @@ export default function ServicesIndex() {
         </ol>
       </section>
 
+      <section data-hero-step="7" class="mb-16">
+        <SectionHeading
+          aside={
+            <a href="/pricing" class="transition-colors hover-hover:hover:text-accent">
+              see pricing →
+            </a>
+          }
+        >
+          Or take it as a retainer
+        </SectionHeading>
+        <div class="rounded-lg border border-line bg-bg-soft p-6 md:p-8">
+          <h2 class="font-display text-xl font-semibold tracking-tight text-balance md:text-2xl">
+            One flat monthly rate for ongoing AI & automation.
+          </h2>
+          <p class="mt-3 max-w-[52ch] text-pretty text-sm leading-relaxed text-fg-muted">
+            Prefer a continuous queue over one-off projects? The{" "}
+            <a
+              href="/pricing"
+              class="underline decoration-line underline-offset-[0.2em] transition-colors hover-hover:hover:decoration-fg"
+            >
+              monthly retainer
+            </a>{" "}
+            covers agents, workflows, and integrations at a fixed price —
+            unlimited requests, pause anytime.
+          </p>
+          <a
+            href="/pricing"
+            class="mt-5 inline-block border border-fg px-5 py-2.5 text-sm font-semibold transition-colors hover-hover:hover:border-accent hover-hover:hover:text-accent"
+          >
+            View retainer pricing →
+          </a>
+        </div>
+      </section>
+
       <section
-        data-hero-step="7"
+        data-hero-step="8"
         class="rounded-lg border border-line bg-bg-soft p-8 text-center md:p-12"
       >
         <h2 class="font-display text-2xl font-semibold tracking-tight text-balance md:text-3xl">

@@ -23,6 +23,7 @@ export function NorthStar(props: { class?: string }) {
 
 const NAV = [
   { label: "services", href: "/services" },
+  { label: "pricing", href: "/pricing" },
   { label: "work", href: "/projects" },
   { label: "notes", href: "/notes" },
   { label: "about", href: "/about" },

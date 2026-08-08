@@ -179,6 +179,7 @@ export default function Contact() {
               >
                 <option value="general">General inquiry</option>
                 <option value="audit">Free AI audit</option>
+                <option value="retainer">Monthly retainer</option>
                 <For each={services}>
                   {(s) => <option value={s.slug}>{s.title}</option>}
                 </For>

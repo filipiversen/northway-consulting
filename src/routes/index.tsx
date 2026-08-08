@@ -8,6 +8,7 @@ import { profile } from "~/content/profile";
 import { projects } from "~/content/projects";
 import { posts } from "~/content/notes";
 import { services } from "~/content/services";
+import { formatPrice, pricing } from "~/content/pricing";
 
 const FEATURED = ["ai-agents", "workflow-automation", "systems-integration"];
 
@@ -299,6 +300,65 @@ export default function Home() {
           field notes
         </SectionHeading>
         <WritingList posts={recent} stagger />
+      </section>
+
+      {/* ---------- Retainer ---------- */}
+      <section class="mb-16 md:mb-20">
+        <SectionHeading
+          aside={
+            <a href="/pricing" class="transition-colors hover-hover:hover:text-accent">
+              full details →
+            </a>
+          }
+        >
+          retainer
+        </SectionHeading>
+        <div class="overflow-hidden rounded-lg border border-line bg-bg-soft">
+          <div class="border-b border-line px-5 py-5 md:px-6 md:py-6">
+            <p class="font-mono text-xs uppercase tracking-[0.18em] text-accent">
+              {pricing.planName}
+            </p>
+            <h2 class="mt-3 max-w-xl text-[clamp(1.15rem,2.5vw,1.55rem)] font-semibold leading-snug text-balance">
+              One flat rate. Automate and add AI — without hourly billing.
+            </h2>
+            <p class="mt-3 flex items-baseline gap-1">
+              <span class="text-3xl font-semibold tracking-tight tabular-nums md:text-4xl">
+                {formatPrice()}
+              </span>
+              <span class="text-fg-muted">{pricing.cadenceLabel}</span>
+            </p>
+            <p class="mt-2 max-w-[52ch] text-[0.85rem] leading-relaxed text-fg-muted">
+              Unlimited automation requests, one at a time. Agents, workflows,
+              integrations — built to ship. {pricing.tagline}
+            </p>
+          </div>
+          <ul class="grid grid-cols-1 gap-0 sm:grid-cols-2">
+            <For each={pricing.included.slice(0, 4)}>
+              {(item) => (
+                <li class="flex items-start gap-3 border-b border-line px-5 py-3 text-[0.82rem] text-fg-muted last:border-b-0 sm:odd:border-r sm:[&:nth-last-child(-n+2)]:border-b-0 md:px-6">
+                  <span aria-hidden="true" class="mt-0.5 text-accent">
+                    ✓
+                  </span>
+                  <span>{item}</span>
+                </li>
+              )}
+            </For>
+          </ul>
+          <div class="flex flex-wrap gap-3 border-t border-line px-5 py-4 md:px-6">
+            <a
+              href="/pricing"
+              class="bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-shadow hover-hover:hover:shadow-[0_0_26px_rgba(48,209,88,0.45)] active:translate-y-px"
+            >
+              See pricing →
+            </a>
+            <a
+              href="/ai-audit"
+              class="border border-line px-5 py-2.5 text-sm font-medium text-fg-muted transition-colors hover-hover:hover:border-accent hover-hover:hover:text-accent"
+            >
+              Or start with a free audit
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* ---------- CTA ---------- */}
