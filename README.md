@@ -26,8 +26,8 @@ npm run typecheck
 npm run build        # emits .vercel/output/ (prerendered)
 ```
 
-`/`, `/services`, `/projects`, `/notes`, `/about`, `/pricing`, and `/contact`
-are seeded for prerender; `crawlLinks` discovers every
+`/`, `/services`, `/projects`, `/notes`, `/about`, `/pricing`, `/start`, and
+`/contact` are seeded for prerender; `crawlLinks` discovers every
 `/services/[slug]`, `/projects/[slug]`, and `/notes/[slug]` from the index
 pages. The free AI audit lives on `/contact#audit` (old `/ai-audit` links
 redirect there).
@@ -45,6 +45,11 @@ src/
     notes/index.tsx          field notes index
     notes/[slug].tsx         field note (MDX)
     about.tsx  pricing.tsx  contact.tsx
+    start/index.tsx          retainer checkout (Stripe Payment Element)
+    start/complete.tsx       post-payment verification + billing portal
+    api/checkout.ts          price lookup + incomplete-subscription create
+    api/billing-portal.ts    portal session for paying customers
+    api/stripe/webhook.ts    signature-verified event notifications
   content/
     profile.ts               brand + contact identity   <- edit me
     services.ts              the service catalog (10)
@@ -70,6 +75,52 @@ These are intentional placeholders (also flagged in-code):
   logos when you're ready (kept firm-voiced and unnamed for now).
 - **Case studies** in `src/content/projects/` are drawn from real work; confirm
   client names / links / permissions before publishing.
+
+## Retainer checkout (Stripe)
+
+`/start` is a self-hosted payment screen for the monthly retainer — our own
+two-step flow (details → payment) built on Stripe's **Payment Element**, not
+the Stripe-hosted checkout page. Card details render inside Stripe's iframe
+and never touch this server.
+
+How it flows:
+
+1. The `CheckoutFlow` island fetches `GET /api/checkout`, which resolves the
+   retainer price live from your Stripe account and returns it with the
+   publishable key.
+2. On "Continue to payment", `POST /api/checkout` finds-or-creates the Stripe
+   customer by email and opens a subscription with
+   `payment_behavior: "default_incomplete"` — nothing is owed until the first
+   invoice is paid, and abandoned checkouts expire on their own.
+3. The Payment Element confirms the invoice's PaymentIntent and redirects to
+   `/start/complete`, which verifies the real payment status with Stripe.
+4. `POST /api/billing-portal` (the "Manage billing" button) exchanges the
+   payment's client secret for a billing-portal session, using
+   `STRIPE_PORTAL_CONFIG_ID` so your pause/cancel rules apply.
+5. `POST /api/stripe/webhook` verifies signatures and emails you (via the
+   same Resend setup as the contact form) on the first paid invoice, failed
+   payments, and cancellations.
+
+Environment variables (`.env`/`.env.local` locally — see `.env.example` —
+and Vercel env vars in production):
+
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `STRIPE_SECRET_KEY` | yes | Secret API key (test/sandbox or live). |
+| `STRIPE_PUBLISHABLE_KEY` | yes | Publishable key for the Payment Element. |
+| `STRIPE_WEBHOOK_SECRET` | for webhooks | Signing secret of the webhook endpoint. |
+| `STRIPE_PORTAL_CONFIG_ID` | no | Billing-portal configuration (`bpc_…`). |
+| `STRIPE_PRICE_ID` / `STRIPE_PRODUCT_ID` | no | Pin the exact price/product to sell. Unset: uses the account's single active recurring price. |
+
+Local webhook testing:
+
+```bash
+stripe listen --forward-to localhost:3000/api/stripe/webhook
+# copy the printed whsec_... into STRIPE_WEBHOOK_SECRET
+```
+
+Until the Stripe keys are set, `/start` renders a friendly "checkout isn't
+configured" state with a contact fallback.
 
 ## Contact form
 

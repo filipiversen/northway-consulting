@@ -5,6 +5,20 @@ import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import tailwindcss from "@tailwindcss/vite";
+import { existsSync, readFileSync } from "node:fs";
+
+// Vinxi's dev server only loads `.env` into process.env — honor `.env.local`
+// too (that's where the Stripe keys live), earlier files winning. Production
+// (Vercel) gets env from the dashboard, so this is a local-dev nicety.
+for (const file of [".env.local", ".env"]) {
+  if (!existsSync(file)) continue;
+  for (const line of readFileSync(file, "utf8").split("\n")) {
+    const match = /^\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*?)\s*$/.exec(line);
+    if (!match) continue;
+    const value = match[2].replace(/^(["'])(.*)\1$/, "$2");
+    process.env[match[1]] ??= value;
+  }
+}
 
 export default defineConfig({
   experimental: {
@@ -24,6 +38,8 @@ export default defineConfig({
         "/notes",
         "/about",
         "/pricing",
+        "/start",
+        "/start/complete",
         "/contact",
         "/thanks",
       ],
